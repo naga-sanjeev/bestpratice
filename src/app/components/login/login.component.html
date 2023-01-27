@@ -1,0 +1,24 @@
+<p-toast></p-toast>
+<div class=" h-screen" >
+  <form class="card" [formGroup]="form">
+          <div  style="text-align: center;" >
+              <img style="align-items: center; height: 50px;" src="/assets/logo.png" >
+          </div>
+          <h6  >Login into your Account</h6>
+          <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+              <input type="text" pInputText placeholder="Username" formControlName="userName">
+          </div>
+          <div class="p-inputgroup mt-3">
+              <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+              <input type="password"  pInputText placeholder="Password" formControlName="password">
+          </div>
+          <span class="flex justify-content-center align-content-center mt-5 ">
+              <button pButton  pRipple type="button" class=" w-full text-white p-button-text  surface-900" label="Login" (click)="onClick()" style="background-color:lightgrey;"></button>
+          </span>
+          <div class="pt-4">
+             Don't have an account?  <a label="Sign-up" routerLink='/register'>Please Register Here</a>
+          </div>
+    
+  </form>
+</div>
