@@ -24,7 +24,7 @@ export class DoctorslistComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.doctorData=this.service.doctorsList
+    this.doctorData
     // console.log(this.doctorData);
 
     

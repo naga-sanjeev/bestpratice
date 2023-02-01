@@ -12,22 +12,37 @@ import { DoctordbComponent } from './components/doctor/doctordb/doctordb.compone
 import { PatientpersonaldataComponent } from './components/doctor/patientpersonaldata/patientpersonaldata.component';
 import { PatientdbComponent } from './components/patient/patientdb/patientdb.component';
 import { ListofdoctorsComponent } from './components/patient/listofdoctors/listofdoctors.component';
-import { DashboardComponent } from './dashboard/dashboard/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AdminGuard } from './admin.guard';
+import { NewadminComponent } from './dashboard/newadmin/newadmin.component';
+import { RootComponent } from './components/root/root.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { FormsComponent } from './components/forms/forms.component';
+import { EditComponent } from './components/edit/edit.component';
 
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            {
-                path: 'hash', component: LogincComponent
-            }, 
+            // {
+            //     path: '', component: LogincComponent
+            // }, 
             {path:'register',component:RegisterComponent},
             {path:'',component:LoginComponent},
-            // {path:'dashboard',component:DashboardComponent},
-            { path: 'dashboard', loadChildren:()=> import('./dashboard/dashboard.module').then(m=>m.DashboardModule)},
-           
+            {
+                path:'dashboard',component:DashboardComponent,
+                children:[
+                    {path:'root',component:RootComponent},
+                    { path: 'admin', component: AdmindbComponent },
+                    { path: 'charts', component: ChartsComponent },
+                    { path: 'forms', component: FormsComponent },
+                    { path: 'edit/:id', component: EditComponent },
+                ]          
+            },
+            // { path: 'dashboard', loadChildren:()=> import('./dashboard/dashboard.module').then(m=>m.DashboardModule),canActivate:[AdminGuard]},
+            { path: 'admin', loadChildren:()=> import('./admin/admin.module').then(m=>m.AdminModule)},
             {
                 path: 'root', component: AppMainComponent,
                 children: [
@@ -38,13 +53,14 @@ import { RegisterComponent } from './components/register/register.component';
                     { path: 'edit-requiremenent', component: EditRequirementsComponent },
                     { path: 'admin', component: AdmindbComponent },
                     { path: 'addusers', component: AddusersComponent },
-                    { path: 'doctor', component: DoctordbComponent },
+                    { path: 'doctor', component: DoctordbComponent,canActivate:[AdminGuard] },
                     { path: 'patientpd', component: PatientpersonaldataComponent },
-                    { path: 'patient', component: PatientdbComponent },
-                    { path: 'listofdoctors', component: ListofdoctorsComponent }
+                    { path: 'patient', component: PatientdbComponent,canActivate:[AdminGuard]  },
+                    { path: 'listofdoctors', component: ListofdoctorsComponent,canActivate:[AdminGuard]  }
                 ]
             },
             { path: "login", component: LogincComponent },
+            { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
             
         ], { scrollPositionRestoration: 'enabled' })
     ],

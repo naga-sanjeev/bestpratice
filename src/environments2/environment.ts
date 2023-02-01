@@ -6,7 +6,7 @@ export const environment={
     listOfUsers:baseUrl+"/listofusers",
     postUserData:baseUrl+"/postuserdata",
     updateUserData:baseUrl+"/updateuserdata/",
-    deleteUserDate:baseUrl+"/deleteuser/",
+    deleteUserData:baseUrl+"/deleteuser/",
     getUserDataById:baseUrl+"/idbased/",
     //doctor urls
     getDoctorData:baseUrl+"/listofrole/doctor",

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
+// import { environment } from 'src/environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { DataService } from 'src/app/data.service';
 import { MessageService } from 'primeng/api';
+import { environment } from 'src/environments2/environment';
 @Component({
   selector: 'app-loginc',
   templateUrl: './loginc.component.html',
@@ -34,7 +35,7 @@ export class LogincComponent implements OnInit {
       "password": this.loginForm.controls.password.value
     }
     let status=''
-    this.service.loginVerification(body).subscribe((data: any) => {
+    this.service.postApi(environment.login,body).subscribe((data: any) => {
       console.log(data);
       status=data.status
       if (data.status == 'success') {

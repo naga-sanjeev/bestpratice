@@ -114,9 +114,14 @@ import { AdmindbComponent } from './components/admin/admindb/admindb.component';
 import { AddusersComponent } from './components/admin/addusers/addusers.component';
 import { PatientpersonaldataComponent } from './components/doctor/patientpersonaldata/patientpersonaldata.component';
 import { ListofdoctorsComponent } from './components/patient/listofdoctors/listofdoctors.component';
-import { DashboardComponent } from './dashboard/dashboard/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CommonInterceptor } from './common.interceptor';
+import { DataService } from './data.service';
+import { RootComponent } from './components/root/root.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { FormsComponent } from './components/forms/forms.component';
+import { EditComponent } from './components/edit/edit.component';
 
 
 // import { PatientComponent } from './components/patient/patient.component';
@@ -249,6 +254,15 @@ import { CommonInterceptor } from './common.interceptor';
         
         RegisterComponent,
         
+        RootComponent,
+        
+        ChartsComponent,
+        
+        FormsComponent,
+        
+        EditComponent,
+        
+        
     
         
         
@@ -257,7 +271,7 @@ import { CommonInterceptor } from './common.interceptor';
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
      
-        MenuService,
+        MenuService,DataService
         // {provide:HTTP_INTERCEPTORS,useClass:CommonInterceptor,multi:true}
         // BreadcrumbService,
     ],

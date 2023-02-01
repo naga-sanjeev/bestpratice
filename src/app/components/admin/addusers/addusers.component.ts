@@ -162,13 +162,13 @@ export class AddusersComponent implements OnInit {
     }
 
     console.log(reqBody);
-    this.service.postUserData(reqBody).subscribe((i: any) => {
-      console.log("postdata enter");
-      console.log(i);
-      if (i.status == 'sucess') {
-        this.messageService.add({ severity: 'success', summary: i.respones, detail: i.recordId });
-      }
-    })
+    // this.service.postUserData(reqBody).subscribe((i: any) => {
+    //   console.log("postdata enter");
+    //   console.log(i);
+    //   if (i.status == 'sucess') {
+    //     this.messageService.add({ severity: 'success', summary: i.respones, detail: i.recordId });
+    //   }
+    // })
 
   }
 

@@ -29,7 +29,8 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/primeflex/primeflex.css"
             ],
             "scripts": [
               "node_modules/prismjs/prism.js",

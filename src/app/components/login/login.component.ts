@@ -16,15 +16,18 @@ export class LoginComponent implements OnInit {
   //crearting a form  to login 
   form: FormGroup
   status:string
-  ngOnInit(): void {
+  role:string
+  ngOnInit(): void {    
     this.form = this.fb.group({
       userName: '',
       password: ''
     })
-
+    
   }
   loginDetails: object = []
   onClick() {
+    this.service.broadCastMessage("button click")
+    this.service.retriveMessage().subscribe((res)=>console.log(res))
     const body = {
       "username": this.form.controls.userName.value,
       "password": this.form.controls.password.value
@@ -35,28 +38,39 @@ export class LoginComponent implements OnInit {
       this.loginDetails = i
       this.loginVerification(this.loginDetails,body)
     })
-    if(body.username=="admin" && body.password=="admin"){
-      this.status = 'success'
-      this.router.navigateByUrl('dashboard/dashboard');
+    if(this.status!='success'){
+      if(body.username=="admin" && body.password=="admin"){
+        this.status = 'success'
+        // this.service.sendRole('admin')
+        this.role = "Admin"
+        sessionStorage.setItem('role', this.role);
+        this.router.navigateByUrl('dashboard/root');
+      }
+      else{
+        this.messageService.add({ severity: 'error', summary: 'Enter UserName and Password correctly', detail: '' });
+      }
     }
-    else{
-      this.messageService.add({ severity: 'error', summary: 'Enter UserName and Password correctly', detail: '' });
-    }
+    
   }
   //function for checking the login verification 
   loginVerification(data: any, body) {
     if (data.status == 'success') {
       if (data.response[0].Role == 'patient') {
         this.status='succes'
-        this.router.navigateByUrl('dashboard');
+        this.router.navigateByUrl('dashboard/root');
       }
       else if (data.response[0].Role == 'doctor') {
         this.status='succes'
-        this.router.navigateByUrl('dashboard');
+        this.router.navigateByUrl('dashboard/root');
       }
     }
     if (this.status = "!success") {
       this.messageService.add({ severity: 'error', summary: 'Enter UserName and Password correctly', detail: '' });
     }
+  }
+  
+  sendRole(data:string){
+    console.log("hai",data);
+ 
   }
 }
