@@ -12,11 +12,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url('/assets/logo2.png');
+        // background-image: url('/assets/logo2.png');
+        background-image: url('/assets/doctor_image.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        height: 100vh;
+        height: 90vh;
     }
     
     // .logo{
@@ -61,11 +62,16 @@
        width:20%;
        justify-content: center;
        height:auto;
-       background-color: rgb(228, 220, 220);
+    //    background-color: rgb(228, 220, 220);
+        background-color: transparent;
     }
     
     .container{
         align-items: center;
         justify-content: center;
+    }
+
+    .textFields{
+        background-color: transparent;
     }
     

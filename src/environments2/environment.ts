@@ -14,4 +14,5 @@ export const environment={
     //patientdata
     getPatientData:baseUrl+"/users/patientdata/",
     deletePatientSlot:baseUrl+"/users/deleteslot/",
+    charts:baseUrl+"/users/chartdata"
 }

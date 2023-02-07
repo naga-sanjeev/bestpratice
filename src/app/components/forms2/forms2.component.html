@@ -1,0 +1,353 @@
+<p-panel header="Add Member">
+    <p-card class="cardform">
+        <form #registerForm="ngForm" (ngSubmit)="addUser(registerForm)">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="firstName" id="firstName" required pattern="^[a-zA-Z]+$"
+                            [(ngModel)]="register.firstName" #firstName="ngModel">
+                        <label for="float-input">First Name<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!firstName?.valid && (firstName?.dirty || firstName?.touched)" class="error">
+                        <div class="validationtest" *ngIf="firstName.errors.required">
+                            First Name is required
+                        </div>
+                        <div class="validationtest" *ngIf="firstName.errors.pattern">
+                            Only characters are allowed
+                        </div>
+                    </span>
+                    <span class="validationtest" *ngIf="firstName.value?.length > 30">
+                        Maximum Length is 30
+                    </span>
+
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="middleName" id="middleName" pattern="^[a-zA-Z]+$" [(ngModel)]="register.middleName"
+                            #middleName="ngModel">
+                        <label for="float-input">Middle Name</label>
+                    </span>
+                    <span *ngIf="!middleName?.valid && (middleName?.dirty || middleName?.touched)" class="error">
+                        <div class="validationtest" *ngIf="middleName.errors.pattern">
+                            Only characters are allowed
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="lastName" id="lastName" required pattern="^[a-zA-Z]+$" [(ngModel)]="register.lastName"
+                            #lastName="ngModel">
+                        <label class="first">Last Name<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!lastName?.valid && (lastName?.dirty || lastName?.touched)" class="error">
+                        <div class="validationtest" *ngIf="lastName.errors.required">
+                            Last Name is required
+                        </div>
+                        <div class='validationtest' *ngIf="lastName.errors?.maxlength">
+                            Maximum Length is 5
+                        </div>
+                        <div class="validationtest" *ngIf="lastName.errors.pattern">
+                            Only characters are allowed
+                        </div>
+                    </span>
+                    <span class="validationtest" *ngIf="lastName.value?.length > 30">
+                        Maximum Length is 30
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="email" id="email" required email #email="ngModel" [(ngModel)]="register.email" />
+                        <label class="first">Email<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+                        <div class="validationtest" *ngIf="email.errors.required">
+                            Email is required
+                        </div>
+                        <div class="validationtest" *ngIf="email.errors.email">
+                            Invalid Email Address
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <br />
+            <div class="p-fluid p-formgrid p-grid">
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" type="number" autocomplete="off" class="p-inputtext-lg" pInputText
+                            name="phoneNumber" id="phoneNumber" required minlength='10' 
+                            [(ngModel)]="register.phoneNumber" #phoneNumber="ngModel" />
+                        <label class="first">Phone Number<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!phoneNumber?.valid && (phoneNumber?.dirty || phoneNumber?.touched)" class="error">
+                        <div class="validationtest" *ngIf="phoneNumber.errors.required">
+                            Phone Number is required
+                        </div>
+                        <div class="validationtest" *ngIf="phoneNumber.errors?.minlength">
+                            Minimum 10 digits are required for Phone Number
+                        </div>
+                    </span>
+                    <span class="validationtest" *ngIf="phoneNumber.value?.length > 15">
+                        Maximum digits for phone number is 15
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" pInputText type="number" autocomplete="off" class="p-inputtext-lg"
+                            name="alternateNumber" id="alternateNumber" minlength=10 
+                            [(ngModel)]="register.alternateNumber" #alternateNumber="ngModel" />
+                        <label class="first">Alternate Number</label>
+                    </span>
+                    <span *ngIf="!alternateNumber?.valid && (alternateNumber?.dirty || alternateNumber?.touched)"
+                        class="error">
+                        <div class='validationtest' *ngIf="alternateNumber.errors?.minlength">
+                            Phone Number Minimmum Length is 10
+                        </div>
+                
+                    </span>
+                    <span class="validationtest" *ngIf="alternateNumber.value?.length > 15">
+                        Maximum digits for phone number is 15
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" pInputText type="number" autocomplete="off" class="p-inputtext-lg" pInputText
+                        name="age" id="age"   required minlength='2' [(ngModel)]="register.age" #age="ngModel" />
+                        <label class="first">Age<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <!-- <input type="number" autocomplete="off" pInputText name="Age" id="Age" class="form-control" required
+                        minlength='2' [(ngModel)]="register.age" #age="ngModel" /> -->
+                    <span *ngIf="!age?.valid && (age?.dirty || age?.touched)" class="error">
+                        <div class="validationtest" *ngIf="age.errors.required">
+                            Age is required
+                        </div>
+                        <div class="validationtest" *ngIf="age.errors?.minlength">
+                            Minimum Length is 2
+                        </div>
+                    </span>
+
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="userName" id="userName" required [(ngModel)]="register.userName" #userName="ngModel">
+                        <label class="first">User Name<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!userName?.valid && (userName?.dirty || userName?.touched)" class="error">
+                        <div class="validationtest" *ngIf="userName.errors.required">
+                            User Name is required
+                        </div>
+                    </span>
+                    <span class="validationtest" *ngIf="userName.value?.length > 30">
+                        Maximum Length is 30
+                    </span>
+                </div>
+            </div>
+            <br />
+            <div class="p-fluid p-formgrid p-grid">
+
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="password" class="p-inputtext-lg" pInputText
+                            name="password" id="password" required minlength="5" [(ngModel)]="register.password"
+                            #password="ngModel">
+                        <label class="first">Password<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="error">
+                        <div class="validationtest" *ngIf="password.errors.required">
+                            Password is required
+                        </div>
+                        <div class="validationtest" *ngIf="password.errors?.minlength">
+                            Minimum Length is
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <p-dropdown [options]="genders" placeholder="Select Gender*" [style]="{'height':'2.8rem'}"
+                        [showClear]="false" optionLabel="gen" required optionValue="gen" name="gender"
+                        [(ngModel)]="register.gender" #gender="ngModel">
+                    </p-dropdown>
+                    <span *ngIf="!gender?.valid && (gender?.dirty || gender?.touched)" class="error">
+                        <div class="validationtest" *ngIf="gender.errors.required">
+                            Gender is required
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="addressLine1" id="addressLine1" required [(ngModel)]="register.addressLine1"
+                            #addressLine1="ngModel">
+                        <label class="first">Address Line1<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!addressLine1?.valid && (addressLine1?.dirty || addressLine1?.touched)" class="error">
+                        <div class="validationtest" *ngIf="addressLine1.errors.required">
+                            Last Name is required
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="addressLine2" id="addressLine2" required [(ngModel)]="register.addressLine2"
+                            #addressLine2="ngModel">
+                        <label class="first">Address Line2</label>
+                    </span>
+                </div>
+            </div>
+            <br />
+            <div class="p-fluid p-formgrid p-grid">
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="city" id="city" required [(ngModel)]="register.city" #city="ngModel">
+                        <label class="first">City<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!city?.valid && (city?.dirty || city?.touched)" class="error">
+                        <div class="validationtest" *ngIf="city.errors.required">
+                            City is required
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="state" id="state" required [(ngModel)]="register.state" #state="ngModel">
+                        <label class="first">State<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!state?.valid && (state?.dirty || state?.touched)" class="error">
+                        <div class="validationtest" *ngIf="state.errors.required">
+                            State is required
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="country" id="country" required [(ngModel)]="register.country" #country="ngModel">
+                        <label class="first">Country<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!country?.valid && (country?.dirty || country?.touched)" class="error">
+                        <div class="validationtest" *ngIf="country.errors.required">
+                            Country is required
+                        </div>
+                    </span>
+
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                            name="pincode" id="pincode" required [(ngModel)]="register.pincode" #pincode="ngModel">
+                        <label class="first">pincode<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!pincode?.valid && (pincode?.dirty || pincode?.touched)" class="error">
+                        <div class="validationtest" *ngIf="pincode.errors.required">
+                            Pincode is required
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <br />
+            <div class="p-fluid p-formgrid p-grid">
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                            name="height" id="height" required [(ngModel)]="register.height" #height="ngModel">
+                        <label class="first">Height<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!height?.valid && (height?.dirty || height?.touched)" class="error">
+                        <div class="validationtest" *ngIf="height.errors.required">
+                            Height is required
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                            name="weight" id="weight" required [(ngModel)]="register.weight" #weight="ngModel">
+                        <label class="first">Weight<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!weight?.valid && (weight?.dirty || weight?.touched)" class="error">
+                        <div class="validationtest" *ngIf="weight.errors.required">
+                            Weight is required
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <p-dropdown [options]="roles" placeholder="Select Role" [showClear]="false" optionLabel="role"
+                        placeholder="Select Role*" [style]="{'height':'2.8rem'}" optionValue="role"
+                        (onClick)="onChange()" name='role' [(ngModel)]="selectRole" [(ngModel)]="register.role"
+                        #role="ngModel" required></p-dropdown>
+                    <span *ngIf="!role?.valid && (role?.dirty || role?.touched)" class="error">
+                        <div class="validationtest" *ngIf="role.errors.required">
+                            Role is required
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 " *ngIf="addDoctor">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="designation" id="designation" required [(ngModel)]="register.designation"
+                            #designation="ngModel">
+                        <label class="first">Designation<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!designation?.valid && (designation?.dirty || designation?.touched)" class="error">
+                        <div class="validationtest" *ngIf="designation.errors.required">
+                            Designation is required
+                        </div>
+                    </span>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 " *ngIf="addPatient">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="bloodGroup" id="bloodGroup" required [(ngModel)]="register.bloodGroup"
+                            #bloodGroup="ngModel">
+                        <label class="first">Blood Group<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!bloodGroup?.valid && (bloodGroup?.dirty || bloodGroup?.touched)" class="error">
+                        <div class="validationtest" *ngIf="bloodGroup.errors.required">
+                            BloodGroup is required
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <br />
+            <div class="p-fluid p-formgrid p-grid">
+                <div class=" p-md-3 p-sm-6 p-lg-3 " *ngIf="addDoctor">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="availableTime" id="availableTime" required [(ngModel)]="register.availableTime"
+                            #availableTime="ngModel">
+                        <label class="first">Available Time<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!availableTime?.valid && (availableTime?.dirty || availableTime?.touched)"
+                        class="error">
+                        <div class="validationtest" *ngIf="availableTime.errors.required">
+                            AvailableTime is required
+                        </div>
+                    </span>
+
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 " *ngIf="addPatient">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            name="problem" id="problem" required [(ngModel)]="register.problem" #problem="ngModel">
+                        <label class="first">Patient Problem<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!problem?.valid && (problem?.dirty || problem?.touched)" class="error">
+                        <div class="validationtest" *ngIf="problem.errors.required">
+                            Patient problem is required
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <br />
+            <p-button type="reset" class='btn' label="Reset" (click)="restForm(registerForm)"></p-button>
+            <p-button type="submit" class="btn" [disabled]="!registerForm.valid" label="Submit"></p-button>&nbsp;
+
+        </form>
+    </p-card>
+</p-panel>

@@ -119,9 +119,18 @@ import { RegisterComponent } from './components/register/register.component';
 import { CommonInterceptor } from './common.interceptor';
 import { DataService } from './data.service';
 import { RootComponent } from './components/root/root.component';
-import { ChartsComponent } from './components/charts/charts.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { EditComponent } from './components/edit/edit.component';
+import { Forms2Component } from './components/forms2/forms2.component';
+import { EdittableComponent } from './components/edittable/edittable.component';
+import { BarComponent } from './components/bar/bar.component';
+import { ProfileComponent } from './components/profile/profile/profile.component';
+import { EditprofileComponent } from './components/profile/editprofile/editprofile.component';
+import { DoughnutComponent } from './components/doughnut/doughnut.component';
+import { LineComponent } from './components/line/line.component';
+import { PieComponent } from './components/pie/pie.component';
+import { PolarComponent } from './components/polar/polar.component';
+import { RadarComponent } from './components/radar/radar.component';
 
 
 // import { PatientComponent } from './components/patient/patient.component';
@@ -256,12 +265,30 @@ import { EditComponent } from './components/edit/edit.component';
         
         RootComponent,
         
-        ChartsComponent,
         
         FormsComponent,
         
         EditComponent,
         
+        Forms2Component,
+        
+        EdittableComponent,
+        
+        BarComponent,
+        
+        ProfileComponent,
+        
+        EditprofileComponent,
+        
+        DoughnutComponent,
+        
+        LineComponent,
+        
+        PieComponent,
+        
+        PolarComponent,
+        
+        RadarComponent,
         
     
         
@@ -271,8 +298,8 @@ import { EditComponent } from './components/edit/edit.component';
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
      
-        MenuService,DataService
-        // {provide:HTTP_INTERCEPTORS,useClass:CommonInterceptor,multi:true}
+        MenuService,DataService,
+        {provide:HTTP_INTERCEPTORS,useClass:CommonInterceptor,multi:true}
         // BreadcrumbService,
     ],
     bootstrap: [AppComponent]

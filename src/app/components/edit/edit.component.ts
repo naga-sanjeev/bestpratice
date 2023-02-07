@@ -94,7 +94,7 @@ export class EditComponent implements OnInit {
     }
   }
   pannelback() {
-    this.router.navigate(["dashboard/admin"])
+    this.router.navigate(["dashboard/table"])
   }
   getUserData() {
     console.log(this.route.snapshot.params.id);

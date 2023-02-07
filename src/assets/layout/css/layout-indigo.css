@@ -51,7 +51,7 @@
   height: 100%;
   width: 8px;
   display: inline-block;
-  float: left;
+  /* float: left; */
   margin-left: 2px;
   animation: delay 0.8s infinite ease-in-out;
 }

@@ -58,16 +58,21 @@ export class LoginComponent implements OnInit {
       if (data.response[0].Role == 'patient') {
         this.status='succes'
         this.router.navigateByUrl('dashboard/root');
+        // this.service.getLoginUserId(data.response[0].Id)
+        sessionStorage.setItem('id',data.response[0].Id );
       }
       else if (data.response[0].Role == 'doctor') {
         this.status='succes'
         this.router.navigateByUrl('dashboard/root');
+        // this.service.getLoginUserId(data.response[0].Id)
+        sessionStorage.setItem('id',data.response[0].Id );
       }
     }
     if (this.status = "!success") {
       this.messageService.add({ severity: 'error', summary: 'Enter UserName and Password correctly', detail: '' });
     }
   }
+  
   
   sendRole(data:string){
     console.log("hai",data);

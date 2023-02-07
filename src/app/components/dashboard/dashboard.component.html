@@ -1,49 +1,32 @@
-
-    <!-- <div class="p-grid p-col-12 p-fluid">
-        <div class="p-col-12 p-fluid header">
-            <div class="color">
-                <p-menubar [model]="item2" class="fixed-top">
-                    <ng-template pTemplate="start">
-    
-                    </ng-template>
-    
-                    <ng-template pTemplate="end">
-                        <div style="text-align: center;">
-                            <img style="width: 32px;height: 32px;" src="./../../../assets/logo.png">
-                        </div>
-                    </ng-template>
-                </p-menubar>
-            </div>
-        </div>
-        <div class="col-12 main">
-            <div class="p-col-2 side-menu">
-                <p-panelMenu [model]="items">
-        
-                </p-panelMenu>
-            </div>
-            <div     class="p-col-10  main-content">
-                    <router-outlet></router-outlet>
-            </div>
-        </div>
-        <div class="footer" style="background-color: rgb(110 110 145)">
-            © {{currenYearFormat}} Copyright:
-        </div>
-    </div> -->
-
-
-
-<div class="grid col-12">
-    <div class="col-4">
+<div class="grid col-12 overFlow ">
+    <div class="col-4 ">
         <div class="header">
             <div class="color">
                 <p-menubar [model]="item2" class="fixed-top">
                     <ng-template pTemplate="start">
-    
+
                     </ng-template>
-    
+
                     <ng-template pTemplate="end">
+
                         <div style="text-align: center;">
-                            <img style="width: 32px;height: 32px;" src="./../../../assets/logo.png">
+                            <p-button icon="pi pi-user" (click)="op.toggle($event)"></p-button>&nbsp;&nbsp;
+                            <p-overlayPanel #op [style]="{width: '150px'}">
+                                <ul class="">
+                                    <li role="menuitem">
+                                        <a href="#" (click)="profile()" >
+                                            <i class="pi pi-user"></i>&nbsp;
+                                            <span >Profile</span>
+                                        </a>
+                                    </li> <br />
+                                    <li role="menuitem">
+                                        <a href="#" routerLink="">
+                                            <i class="pi pi-sign-out"></i>&nbsp;
+                                            <span>Sign Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </p-overlayPanel>
                         </div>
                     </ng-template>
                 </p-menubar>
@@ -53,43 +36,69 @@
     <div class="col-12 main">
         <div class="p-col-2 side-menu">
             <p-panelMenu [model]="items">
-    
+
             </p-panelMenu>
         </div>
         <div     class="p-col-10  main-content">
                 <router-outlet></router-outlet>
         </div>
+      
     </div>
-   
-    <div class="footer" style="background-color: rgb(110 110 145)">
-        © {{currenYearFormat}} Copyright:
-    </div>
-</div>
 
-<!-- <div class="header">
-    <div class="color">
-        <p-menubar [model]="item2" class="fixed-top">
-            <ng-template pTemplate="start">
-
-            </ng-template>
-
-            <ng-template pTemplate="end">
-                <div style="text-align: center;">
-                    <img style="width: 32px;height: 32px;" src="./../../../assets/logo.png">
-                </div>
-            </ng-template>
-        </p-menubar>
+    <div class="footer" style="background-color: #3F51B5">
+        <div style="color: aliceblue;"> © {{currenYearFormat}} Miracle Software System Copyright:</div>
     </div>
 </div>
-<div class="grid p-fluid">
-    <div class="p-col-3" >
-        <div class="side-menu">
-            <p-panelMenu [model]="items">
-            </p-panelMenu>
+
+
+<!-- <div class="grid col-12 overFlow ">
+    <div class="col-4 ">
+        <div class="header">
+            <div class="color">
+                <p-menubar [model]="item2" class="fixed-top">
+                    <ng-template pTemplate="start">
+
+                    </ng-template>
+
+                    <ng-template pTemplate="end">
+
+                        <div style="text-align: center;">
+                            <p-button icon="pi pi-user" (click)="op.toggle($event)"></p-button>&nbsp;&nbsp;
+                            <p-overlayPanel #op [style]="{width: '150px'}">
+                                <ul class="">
+                                    <li role="menuitem">
+                                        <a href="#" routerLink="/root/profile">
+                                            <i class="pi pi-user"></i>&nbsp;
+                                            <span>Profile</span>
+                                        </a>
+                                    </li> <br />
+                                    <li role="menuitem">
+                                        <a href="#" routerLink="">
+                                            <i class="pi pi-sign-out"></i>&nbsp;
+                                            <span>Sign Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </p-overlayPanel>
+                        </div>
+                    </ng-template>
+                </p-menubar>
+            </div>
         </div>
     </div>
-</div>
-<div class="footer" style="background-color: rgb(110 110 145)">
-    © {{currenYearFormat}} Copyright:
-</div> -->
+    <div class="col-12 main">
+        <div class="p-col-2 side-menu">
+            <p-panelMenu [model]="items">
 
+            </p-panelMenu>
+        </div>
+        <div     class="p-col-10  main-content">
+                <router-outlet></router-outlet>
+        </div>
+      
+    </div>
+
+    <div class="footer" style="background-color: #3F51B5">
+        <div style="color: aliceblue;"> © {{currenYearFormat}} Copyright:</div>
+    </div>
+</div> -->

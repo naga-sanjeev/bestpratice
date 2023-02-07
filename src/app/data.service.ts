@@ -36,6 +36,20 @@ export class DataService {
   retriveMessage(): Observable<any>{
       return this.subject.asObservable();
   }
+
+  public editId=new Subject();
+  getEditUserId(id){
+    console.log(id);
+    this.editId.next(id)
+  }
+
+  public loginUserId=new Subject();
+  getLoginUserId(id){
+    console.log(id);
+    this.loginUserId.next(id)
+  }
+
+
   postApi(endpoint, body): Observable<any> {
     // let myHeaders=new HttpHeaders({"key1":"val1"})
     // myHeaders=myHeaders.set("AuthKey","123-987")
@@ -60,4 +74,7 @@ export class DataService {
   updateUserData(endpoint,id,data){
       return this.http.put(endpoint+id,data);
   }
+  getData(endpoint) {
+    return this.http.get(endpoint) 
+    }
 }

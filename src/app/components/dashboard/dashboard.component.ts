@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MenuItem, MessageService } from 'primeng/api';
+import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 import { AppComponent } from 'src/app/app.component';
 import { AppMainComponent } from 'src/app/app.main.component';
 import { DataService } from 'src/app/data.service';
@@ -14,81 +14,86 @@ import { environment } from 'src/environments2/environment';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute,private service:DataService,private messageService: MessageService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private service: DataService, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   currenYearFormat: number = new Date().getFullYear();
   title = 'TaskManagement';
   items: MenuItem[] = [];
   item2: MenuItem[] = [];
   dot: false | undefined;
-  role:string
-  model=[]
+  role: string
+  profileMode = 'popup';
+  model = []
+  ripple: boolean;
   ngOnInit(): void {
-   this.getUsersData()
-   this.onClick();
-   this.sideBar();
+    this.getUsersData()
+    // this.onClick();
+    this.sideBar();
+    this.primengConfig.ripple = true;
   }
-  sideBar(){
+  sideBar() {
     this.items = [
       {
         label: 'Home',
-        // icon: 'pi pi-pw pi-file',
         routerLink: ['/dashboard/root']
       },
       {
-        label: 'charts',
-        routerLink: ['/dashboard/charts']
+        label: 'Charts',
+        items: [
+          {
+            label: 'Bar',
+            routerLink: ['/dashboard/bar']
+          },
+          {
+            label: 'Doughnut',
+            routerLink: ['/dashboard/doughnut']
+          },
+          {
+            label: 'Line',
+            routerLink: ['/dashboard/line']
+          },
+          {
+            label: 'Pie',
+            routerLink: ['/dashboard/pie']
+          },
+          {
+            label: 'Polar',
+            routerLink: ['/dashboard/polar']
+          },
+          {
+            label: 'Radar',
+            routerLink: ['/dashboard/radar']
+          },
+        ]
       },
       {
-        label: 'forms',
-        routerLink: ['/dashboard/forms']
+        label: "Forms",
+        items: [{
+          label: 'Reactive Forms',
+          routerLink: ['/dashboard/forms']
+        },
+        {
+          label: 'Template Driven Forms',
+          routerLink: ['/dashboard/forms2']
+        },
+        ]
       },
       {
-        label: 'table',
-        routerLink: ['/dashboard/admin']
+        label: 'Table',
+        routerLink: ['/dashboard/table']
       },
-      // {
-      //   label: 'Reporting',
-      //   icon: 'pi pi-fw pi-cog',
-      //   items: [
-      //     {
-      //       label: 'Add project',
-      //       icon: 'pi pi-fw pi-pencil',
-      //       items: [
-      //         { label: 'Save', icon: 'pi pi-fw pi-save' },
-      //         { label: 'Update', icon: 'pi pi-fw pi-save' },
-      //       ]
-      //     },
-      //     {
-      //       label: 'add task',
-      //       icon: 'pi pi-fw pi-pencil',
-      //       items: [
-      //         { label: 'Delete', icon: 'pi pi-fw pi-minus' }
-      //       ]
-      //     }
-      //   ]
-      // }
-    ];  
+      {
+        label: 'Edit Table',
+        routerLink: ['/dashboard/editTable']
+      }
+    ];
   }
-  getUsersData(){
-    this.service.getApi(environment.listOfUsers).subscribe((i)=>{
+  getUsersData() {
+    this.service.getApi(environment.listOfUsers).subscribe((i) => {
       console.log(i);
     })
   }
-  onClick(){
-    this.role = sessionStorage.getItem('role')
-    if (this.role == 'admin') {
-      this.model = [
-        {
-          items: [            
-            {
-              label:"List of users",
-              icon:"",
-              // routerLink:["/dashboard/admin"]
-            }
-          ],
-        }
-      ];
-    }
+  profile(){
+    this.router.navigateByUrl('dashboard/profile')
   }
 }
