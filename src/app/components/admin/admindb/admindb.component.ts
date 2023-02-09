@@ -13,11 +13,23 @@ export class AdmindbComponent implements OnInit {
  
   constructor(private router: Router, private service: DataService, private messageService: MessageService) { }
   usersData: any = []
-  
-  
+  role:string
+  action:boolean
   ngOnInit(): void {
     this.getTableData()
+    this.role = sessionStorage.getItem('role' || '')
+    this.getAction()
   }
+  getAction(){
+    console.log(this.role);
+    if(this.role=='Admin'){
+      this.action=true
+    }
+    else{
+      this.action=false
+    }
+  }
+
   getTableData() {
     this.service.getApi(environment.listOfUsers).subscribe((i: any) => {
       console.log(i.respones);

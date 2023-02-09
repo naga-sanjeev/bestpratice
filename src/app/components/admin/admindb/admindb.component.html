@@ -14,7 +14,7 @@
                 </th>
                 <th >&nbsp;&nbsp;Role
                 </th>
-                <th >Action
+                <th *ngIf="action" >Action
                 </th>
             </tr>
         </ng-template>
@@ -25,9 +25,9 @@
                 <td class="textCenter">{{data.PhoneNumber}}</td>
                 <td class="textCenter">{{data.Email}} </td>
                 <td class="textCenter">&nbsp;&nbsp;&nbsp;{{data.Role}}</td>
-                <td>
-                    <!-- <i class="pi pi-user-edit" routerLink="/dashboard/edit/{{data.Id}}" style="font-size: 1rem"></i> -->
-                    <i class="pi pi-user-edit" (click)="onEdit(data.Id)" style="font-size: 1rem"></i>
+                <td *ngIf="action">
+                    <i class="pi pi-user-edit" routerLink="/dashboard/edit/{{data.Id}}" style="font-size: 1rem"></i>
+                    <!-- <i class="pi pi-user-edit" (click)="onEdit(data.Id)" style="font-size: 1rem"></i> -->
                     &nbsp;&nbsp;
                     <i class="pi pi-trash" (click)="onDelete(data.Id)" style="font-size: 1rem"></i>
                 </td>

@@ -20,3 +20,14 @@
   input[type=number] {
     -moz-appearance: textfield;
   }
+  .h-screen{
+    background: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/doctor_image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}

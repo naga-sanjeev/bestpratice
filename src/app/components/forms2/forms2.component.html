@@ -77,8 +77,8 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class=" p-md-3 p-sm-6 p-lg-3 ">
                     <span class="p-float-label">
-                        <input id="float-input" type="number" autocomplete="off" class="p-inputtext-lg" pInputText
-                            name="phoneNumber" id="phoneNumber" required minlength='10' 
+                        <input id="float-input" type="text" autocomplete="off" class="p-inputtext-lg" pInputText 
+                            name="phoneNumber" id="phoneNumber" required minlength="10" [pattern]="mobNumberPattern"
                             [(ngModel)]="register.phoneNumber" #phoneNumber="ngModel" />
                         <label class="first">Phone Number<span class="mandatoryColor">*</span></label>
                     </span>
@@ -89,37 +89,56 @@
                         <div class="validationtest" *ngIf="phoneNumber.errors?.minlength">
                             Minimum 10 digits are required for Phone Number
                         </div>
+                        <div class="validationtest" *ngIf="phoneNumber.errors.pattern">
+                            Only digits are allowed
+                        </div>
                     </span>
                     <span class="validationtest" *ngIf="phoneNumber.value?.length > 15">
                         Maximum digits for phone number is 15
                     </span>
                 </div>
+                <!-- <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                            name="phoneNumber" id="phoneNumber" required minlength="10" [(ngModel)]="register.phoneNumber"
+                            #phoneNumber="ngModel">
+                        <label class="first">Phone Number<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <span *ngIf="!phoneNumber?.valid && (phoneNumber?.dirty || phoneNumber?.touched)" class="error">
+                        <div class="validationtest" *ngIf="phoneNumber.errors.required">
+                            Phone Number is required
+                        </div>
+                        <div class="validationtest" *ngIf="phoneNumber.errors?.minlength">
+                            Minimum Length is 10
+                        </div>
+                    </span>
+                    <span class="validationtest" *ngIf="phoneNumber.value?.length > 15">
+                        Maximum digits for phone number is 15
+                    </span>
+                </div> -->
                 <div class=" p-md-3 p-sm-6 p-lg-3 ">
                     <span class="p-float-label">
-                        <input id="float-input" pInputText type="number" autocomplete="off" class="p-inputtext-lg"
-                            name="alternateNumber" id="alternateNumber" minlength=10 
-                            [(ngModel)]="register.alternateNumber" #alternateNumber="ngModel" />
+                        <input id="float-input" autocomplete="off" type="alternateNumber" class="p-inputtext-lg" pInputText
+                            name="alternateNumber" id="alternateNumber"  minlength="10" [(ngModel)]="register.alternateNumber"
+                            #alternateNumber="ngModel">
                         <label class="first">Alternate Number</label>
                     </span>
-                    <span *ngIf="!alternateNumber?.valid && (alternateNumber?.dirty || alternateNumber?.touched)"
-                        class="error">
-                        <div class='validationtest' *ngIf="alternateNumber.errors?.minlength">
-                            Phone Number Minimmum Length is 10
+                    <span *ngIf="!alternateNumber?.valid && (alternateNumber?.dirty || alternateNumber?.touched)" class="error">
+                        <div class="validationtest" *ngIf="alternateNumber.errors?.minlength">
+                            Minimum Length is 10
                         </div>
-                
                     </span>
-                    <span class="validationtest" *ngIf="alternateNumber.value?.length > 15">
-                        Maximum digits for phone number is 15
+                    <span class="validationtest" *ngIf="alternateNumber.value?.length > 10">
+                        Maximum digits for alternate number is 10
                     </span>
                 </div>
                 <div class=" p-md-3 p-sm-6 p-lg-3 ">
                     <span class="p-float-label">
-                        <input id="float-input" pInputText type="number" autocomplete="off" class="p-inputtext-lg" pInputText
-                        name="age" id="age"   required minlength='2' [(ngModel)]="register.age" #age="ngModel" />
+                        <input id="float-input" autocomplete="off" type="age" class="p-inputtext-lg" pInputText
+                            name="age" id="age" required minlength="2" [(ngModel)]="register.age"
+                            #age="ngModel">
                         <label class="first">Age<span class="mandatoryColor">*</span></label>
                     </span>
-                    <!-- <input type="number" autocomplete="off" pInputText name="Age" id="Age" class="form-control" required
-                        minlength='2' [(ngModel)]="register.age" #age="ngModel" /> -->
                     <span *ngIf="!age?.valid && (age?.dirty || age?.touched)" class="error">
                         <div class="validationtest" *ngIf="age.errors.required">
                             Age is required
@@ -128,7 +147,6 @@
                             Minimum Length is 2
                         </div>
                     </span>
-
                 </div>
                 <div class=" p-md-3 p-sm-6 p-lg-3 ">
                     <span class="p-float-label">
@@ -148,7 +166,6 @@
             </div>
             <br />
             <div class="p-fluid p-formgrid p-grid">
-
                 <div class=" p-md-3 p-sm-6 p-lg-3 ">
                     <span class="p-float-label">
                         <input id="float-input" autocomplete="off" type="password" class="p-inputtext-lg" pInputText
@@ -161,7 +178,7 @@
                             Password is required
                         </div>
                         <div class="validationtest" *ngIf="password.errors?.minlength">
-                            Minimum Length is
+                            Minimum Length is 5
                         </div>
                     </span>
                 </div>
@@ -279,7 +296,7 @@
                 <div class=" p-md-3 p-sm-6 p-lg-3 ">
                     <p-dropdown [options]="roles" placeholder="Select Role" [showClear]="false" optionLabel="role"
                         placeholder="Select Role*" [style]="{'height':'2.8rem'}" optionValue="role"
-                        (onClick)="onChange()" name='role' [(ngModel)]="selectRole" [(ngModel)]="register.role"
+                        (onChange)="onChange()" name='role' [(ngModel)]="selectRole" [(ngModel)]="register.role"
                         #role="ngModel" required></p-dropdown>
                     <span *ngIf="!role?.valid && (role?.dirty || role?.touched)" class="error">
                         <div class="validationtest" *ngIf="role.errors.required">
@@ -318,7 +335,7 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class=" p-md-3 p-sm-6 p-lg-3 " *ngIf="addDoctor">
                     <span class="p-float-label">
-                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                        <input id="availableTime" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
                             name="availableTime" id="availableTime" required [(ngModel)]="register.availableTime"
                             #availableTime="ngModel">
                         <label class="first">Available Time<span class="mandatoryColor">*</span></label>
@@ -329,7 +346,13 @@
                             AvailableTime is required
                         </div>
                     </span>
-
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3 " *ngIf="addDoctor">
+                    <span class="p-float-label">
+                        <input id="image" autocomplete="off" type="file" class="p-inputtext-lg" pInputText
+                            name="image" id="image" required [(ngModel)]="register.image"
+                            #image="ngModel">
+                    </span>
                 </div>
                 <div class=" p-md-3 p-sm-6 p-lg-3 " *ngIf="addPatient">
                     <span class="p-float-label">

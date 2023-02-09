@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { DataService } from 'src/app/data.service';
 import { environment } from 'src/environments2/environment';
@@ -15,7 +15,7 @@ import { AdmindbComponent } from '../admin/admindb/admindb.component';
 })
 export class FormsComponent implements OnInit {
   
-  constructor(private fb: FormBuilder, private router: Router, private service: DataService, private https: HttpClient, private messageService: MessageService) { }
+  constructor(private fb: FormBuilder, private router: Router, private service: DataService, private https: HttpClient, private messageService: MessageService,private route: ActivatedRoute) { }
   gender: object=[];
   roles: any
   selectRole: any;
@@ -29,50 +29,10 @@ export class FormsComponent implements OnInit {
   myfile:any[]=[]; 
   id:number=0;
   userData:any
+  role:string
   ngOnInit(): void {
-    // this.form();
-    this.roles = [
-      { role: 'doctor' },
-      { role: 'patient' }
-    ];
-    this.gender = [
-      { gen: 'male' },
-      { gen: 'female' }
-    ]
-    this.regForm = this.fb.group({
-      firstName: ['', [Validators.pattern('^[a-zA-Z]*'), Validators.maxLength(30), Validators.required]],
-      middleName: ['', [Validators.pattern('^[a-zA-Z]*'), Validators.maxLength(30)]],
-      lastName: ['', [Validators.pattern('^[a-zA-Z]*'), Validators.maxLength(30), Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required, Validators.pattern("([0-9]{10,15}$)"),]],
-      alternativeNumber: ['', [Validators.pattern("^[0-9]{10}$"),]],
-      age: ['', [Validators.pattern("^[0-9]{2}$"), Validators.required]],
-      userName: ['', [Validators.pattern("^[a-zA-Z]*"), Validators.required]],
-      password: ['', [Validators.minLength(5), Validators.required]],
-      gender: ['', [Validators.required]],
-      addressLine1: ['', [Validators.maxLength(60), Validators.required]],
-      addressLine2: ['', [Validators.maxLength(60)]],
-      city: ['', [Validators.maxLength(30),Validators.pattern('^[a-zA-Z]*'), Validators.maxLength(30), Validators.required]],
-      state: ['', [Validators.maxLength(10),Validators.pattern('^[a-zA-Z]*'), Validators.maxLength(30), Validators.required]],
-      country: ['', [Validators.maxLength(20),Validators.pattern('^[a-zA-Z]*'), Validators.required]],
-      pinCode: ['', [Validators.required]],
-      height: ['', [Validators.required]],
-      weight: ['', [Validators.required]],
-      bloodGroup: [''],
-      role: ['', [Validators.required]],//doctor or patient
-      designation: [''],
-      availbility: [''],
-      patientProblem: [''],
-      image:['']
-    })
-    this.regForm.get('role').valueChanges.subscribe((data: any) => {
-      this.changeValidators()
-    })
-    this.service.editId.subscribe((i:number)=>{
-      console.log("forms",i)
-      this.id=i
-      this.getUserData()   
-    })
+    this.form();
+    this.getRole()
   }
   form(){
     this.roles = [
@@ -88,10 +48,10 @@ export class FormsComponent implements OnInit {
       middleName: ['', [Validators.pattern('^[a-zA-Z]*'), Validators.maxLength(30)]],
       lastName: ['', [Validators.pattern('^[a-zA-Z]*'), Validators.maxLength(30), Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required, Validators.pattern("([0-9]{10,15}$)"),]],
+      phoneNumber: ['', [Validators.required, Validators.pattern("(^[0-9]{10,15}$)"),]],
       alternativeNumber: ['', [Validators.pattern("^[0-9]{10}$"),]],
       age: ['', [Validators.pattern("^[0-9]{2}$"), Validators.required]],
-      userName: ['', [Validators.pattern("^[a-zA-Z]*"), Validators.required]],
+      userName: ['', [Validators.required]],
       password: ['', [Validators.minLength(5), Validators.required]],
       gender: ['', [Validators.required]],
       addressLine1: ['', [Validators.maxLength(60), Validators.required]],
@@ -113,56 +73,66 @@ export class FormsComponent implements OnInit {
       this.changeValidators()
     })
   }
+  getRole(){
+    this.role = sessionStorage.getItem('role' || '')
+    console.log(this.role);
+    if(this.role=="Admin")
+    {
+      this.service.editId.subscribe((i:number)=>{
+        console.log("forms",i)
+        this.id=i
+      })
+      this.getUserData()   
+    }
+  }
   edit:boolean=false
   getUserData() {
     console.log(this.id);
-    if(this.id==0){
-      this.edit=false
+    console.log(this.route.snapshot.params.id);
+    if(this.route.snapshot.params.id==undefined){
+      this.edit=false;
+      console.log(this.edit);
     }
     else{
       console.log(this.id);
       this.edit=true
-      this.service.getUserById(environment.getUserDataById,this.id).subscribe((res: any) => {
+      console.log(this.edit);
+      this.service.getUserById(environment.getUserDataById,this.route.snapshot.params.id).subscribe((res: any) => {
         console.log(res);
         this.userData = res.respones[0];
         console.log(this.userData);
-        console.log(this.userData.Firstname);
-        // const editProfile={
-        //   firstName:'sanjeev'
-        // }
-        // this.regForm.patchValue(editProfile)
-  
-        this.regForm.patchValue({
-          firstName:'sanjeev',
-          middleName:this.userData.Middlename,
-          lastName:this.userData.LastName,
-          email:this.userData.Email,
-          phoneNumber:this.userData.PhoneNumber,
-          alternativeNumber:this.userData.AlternativeNumber,
-          age:this.userData.Age,
-          gender:this.userData.Gender,
-          userName:this.userData.username,
-          password:this.userData.password,
-          addressLine1:this.userData.Addressline1,
-          addressLine2:this.userData.Addressline2,
-          city:this.userData.City,
-          state:this.userData.State,
-          country:this.userData.Country,
-          pinCode:this.userData.Pincode,
-          height:this.userData.height,
-          weight:this.userData.weight,
-          role:this.userData.Role,
-          bloodGroup:this.userData.Bloodgroup,
-          designation:this.userData.designation,
-          availbility:this.userData.availbility,
-          patientProblem:this.userData.patientproblem
-        });
-       
+        console.log(this.userData.Firstname);       
+          this.regForm.patchValue({
+            firstName: res.respones[0].Firstname,
+            middleName: res.respones[0].Middlename,
+            lastName: res.respones[0].LastName,
+            email: res.respones[0].Email,
+            phoneNumber: res.respones[0].PhoneNumber,
+            alternativeNumber: res.respones[0].AlternativeNumber,
+            age: res.respones[0].Age,
+            gender: res.respones[0].Gender,
+            userName: res.respones[0].username,
+            password: res.respones[0].password,
+            addressLine1: res.respones[0].Addressline1,
+            addressLine2: res.respones[0].Addressline2,
+            city: res.respones[0].City,
+            state: res.respones[0].State,
+            country: res.respones[0].Country,
+            pinCode: res.respones[0].Pincode,
+            height: res.respones[0].height,
+            weight: res.respones[0].weight,
+            role: res.respones[0].Role,
+            bloodGroup:res.respones[0].Bloodgroup,
+            availbility:res.respones[0].availbility,
+            designation:res.respones[0].designation,
+            patientProblem:res.respones[0].patientproblem
+        })
         this.onChange()
       })
     }
-    
-   
+  }
+  pannelBack() {
+    this.router.navigate(["dashboard/table"])
   }
   changeValidators() {
     console.log(this.regForm.get('role').value);
@@ -234,7 +204,9 @@ export class FormsComponent implements OnInit {
       this.onBasicUploadAuto(event);
       this.service.postApi(environment.postUserData,reqBody).subscribe((i)=>{
         console.log(i);
-        this.router.navigateByUrl('dashboard/table');
+        setTimeout(()=>{
+          this.router.navigateByUrl('/dashboard/table')
+         },2000)
         this.messageService.add({ severity: 'success', summary: 'Updated successully', detail: '',life:3000 });
       })
     
@@ -294,9 +266,12 @@ export class FormsComponent implements OnInit {
         "doc_prescription_2": "null",
       }
       console.log(reqBody);
-     this.service.updateUserData(environment.updateUserData,this.id,reqBody).subscribe((i)=>{
+     this.service.updateUserData(environment.updateUserData,this.route.snapshot.params.id,reqBody).subscribe((i)=>{
        console.log(i);
-       this.messageService.add({ severity: 'success', summary: 'Updated successully', detail: '' });
+       setTimeout(()=>{
+        this.router.navigateByUrl('/dashboard/table')
+       },2000)
+       this.messageService.add({ severity: 'success', summary: 'Updated successully', detail: '',life:3000 });
      })
     }
   }

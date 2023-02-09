@@ -72,6 +72,7 @@ export class DataService {
     return this.http.get(endpoint+id)
   }
   updateUserData(endpoint,id,data){
+    console.log(data);
       return this.http.put(endpoint+id,data);
   }
   getData(endpoint) {

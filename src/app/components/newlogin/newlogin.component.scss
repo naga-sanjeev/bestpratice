@@ -1,0 +1,124 @@
+/* .b{
+    width: 200px;
+    padding: 13px;
+    box-sizing: border-box;
+    background-color: lightblue;
+    margin-right: 12%;
+}
+.s
+{
+    width:80% ;
+} */
+input{
+    background-color: black;
+    color: rgb(228, 231, 10);
+}
+
+h5{
+    color: white;
+}
+/* @media only screen and (max-width:758px) {
+    .container{
+grid-template-rows: 1fr;
+grid-template-columns: 1fr 1fr 1fr;
+    }
+} */
+
+.demo{
+    display: flex;
+    justify-content: center;
+   
+}
+label{
+    color: white;
+}
+input.ng-touched.ng-invalid
+{
+    border:2px solid red;
+}
+input.ng-touched.ng-valid
+{
+    border:2px solid green;
+}
+
+@media screen and (max-width:481px) {
+    p-card.right{
+       
+    }
+    input{
+        color:green
+    }
+}
+  @media screen and (max-width:720px) {
+    p-card.left{
+        display:none !important;  
+    }
+    p.h{
+         margin-top: -12%;
+
+    }
+    p-card.right
+    {
+        height: 106vh;
+        
+    }
+}
+
+@media screen and (max-width:485px){
+    /* p-card.right
+    {
+        width:10%;
+        background-color: blue;
+        margin-left:-50%;
+        color:red
+
+    }  
+    
+    input
+    {
+        color:red;
+        
+    }
+    .right
+    {
+        align-items: center;
+       
+    }
+    img
+    {
+        width:32%;
+        margin-left:-233%
+    } */
+}
+@media screen and (max-width:481px) {
+    p-card.right{
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    width: 12%;
+    color: red;
+    }
+    img
+    {
+        margin-left: 52px;
+    }
+}
+/* @media screen and (max-width:500px) and (min-width:100px){
+    .right{
+       
+        width: 228%; 
+
+        justify-content: center;
+        align-items: center;
+        margin-left: -157%;
+       
+    }
+  
+} */
+.h{
+    display: flex;
+    justify-content: end;
+    align-items: flex-start;
+    margin-bottom: 55px;
+    padding-top: 57px;
+}

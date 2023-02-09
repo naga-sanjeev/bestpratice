@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
     this.getUserData()
   }
   getUserData() {
-    this.id = sessionStorage.getItem('id' || '[]')
+    this.id = localStorage.getItem('id' || '[]')
     console.log(this.id);
     this.service.getUserById(environment.getUserDataById,this.id).subscribe((res: any) => {
       console.log(res);
@@ -81,7 +81,7 @@ export class ProfileComponent implements OnInit {
     })
   }
   pannelback() {
-      this.router.navigateByUrl('dashboard')
+      this.router.navigateByUrl('dashboard/root')
   }
 
 }

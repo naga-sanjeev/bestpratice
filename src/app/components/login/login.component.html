@@ -1,35 +1,76 @@
 <p-toast></p-toast>
-<div class=" h-screen">
-    <form class="card" [formGroup]="form">
-        <!-- <div  style="text-align: center;" >
-              <img style="align-items: center; height: 50px;" src="/assets/logo.png" >
-          </div> -->
-        <h6>Login into your Account</h6>
-        <br/>
-        <div class="p-inputgroup">
-            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <span class="p-float-label">
-                <input id="userName" type="text" autocomplete="off" class="textFields" pInputText  formControlName="userName">
-                <label for="float-input">User Name</label>
-            </span>
-        </div>
-        <br /><br/>
-        <div class="p-inputgroup mt-3">
-            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-            <span class="p-float-label">
-                <input id="password" type="password" autocomplete="off" class="textFields" pInputText  formControlName="password">
-                <label for="float-input">Password</label>
-            </span>
-        </div>
-        <br />
-        <span class="flex justify-content-center align-content-center mt-4 ">
-            <button pButton pRipple type="button" class=" w-full text-white p-button-text  surface-900" label="Login"
-                (click)="onClick()" style="background-color:lightgrey;"></button>
-        </span>
-        <br/>
-        <div class="pt-4">
-            Don't have an account? <a label="Sign-up" routerLink='/register'>Please Register Here</a>
-        </div>
+<!-- <div class="p-grid screen">
+   
+        <div class="p-col-8 h-screen">
 
-    </form>
+        </div>
+        <div class="p-col-4">
+            <form class="card" [formGroup]="form">
+
+                <h6>Login into your Account</h6>
+                <br/>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <span class="p-float-label">
+                        <input id="userName" type="text" autocomplete="off" class="textFields" pInputText  formControlName="userName">
+                        <label for="float-input">User Name</label>
+                    </span>
+                </div>
+                <br /><br/>
+                <div class="p-inputgroup mt-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                    <span class="p-float-label">
+                        <input id="password" type="password" autocomplete="off" class="textFields" pInputText  formControlName="password">
+                        <label for="float-input">Password</label>
+                    </span>
+                </div>
+                <br />
+                <span class="flex justify-content-center align-content-center mt-4 ">
+                    <button pButton pRipple type="button" class=" w-full text-white p-button-text  surface-900" label="Login"
+                        (click)="onClick()" style="background-color:lightgrey;"></button>
+                </span>
+                <br/>
+                <div class="pt-4">
+                    Don't have an account? <a label="Sign-up" routerLink='/newRegister'>Please Register Here</a>
+                </div>
+        
+            </form>
+        </div>
+  
+</div> -->
+
+<div class=" h-screen">
+    <div>
+        <p-card>
+            <form class="" [formGroup]="form">
+                <h4>Login into your Account</h4>
+                <br/>
+                <div class="p-inputgroup"  >
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <span class="p-float-label">
+                        <input id="userName" type="text" autocomplete="off" class="textFields" pInputText  formControlName="userName">
+                        <label for="float-input" >User Name</label>
+                    </span>
+                </div>
+                <br /><br/>
+                <div class="p-inputgroup mt-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                    <span class="p-float-label">
+                        <input id="password" type="password" autocomplete="off" class="textFields" pInputText  formControlName="password">
+                        <label for="float-input">Password</label>
+                    </span>
+                </div>
+                <br />
+                <span class="flex justify-content-center align-content-center mt-4 ">
+                    <button pButton pRipple type="button" class=" w-full text-white p-button-text  surface-700" label="Login"
+                        (click)="onClick()" style="background-color:white;"></button>
+                </span>
+                <br/><br/>
+               
+                    Don't have an account? <a label="Sign-up" routerLink='/newRegister' >Please Register Here</a>
+                
+        
+            </form>
+        </p-card>
+    </div>
 </div>

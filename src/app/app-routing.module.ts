@@ -32,6 +32,9 @@ import { PieComponent } from './components/pie/pie.component';
 import { LineComponent } from './components/line/line.component';
 import { PolarComponent } from './components/polar/polar.component';
 import { RadarComponent } from './components/radar/radar.component';
+import { NewregisterComponent } from './components/newregister/newregister.component';
+import { Newregister2Component } from './components/newregister2/newregister2.component';
+import { NewloginComponent } from './components/newlogin/newlogin.component';
 
 
 @NgModule({
@@ -41,6 +44,9 @@ import { RadarComponent } from './components/radar/radar.component';
             //     path: '', component: LogincComponent
             // }, 
             {path:'register',component:RegisterComponent},
+            {path:'newRegister',component:NewregisterComponent},
+            {path:'nr2',component:Newregister2Component},
+            {path:'nl',component:NewloginComponent},
             {path:'',component:LoginComponent},
             {
                 path:'dashboard',component:DashboardComponent,
@@ -48,7 +54,8 @@ import { RadarComponent } from './components/radar/radar.component';
                     { path:'root',component:RootComponent},
                     { path: 'table', component: AdmindbComponent },
                     { path: 'forms', component: FormsComponent },
-                    { path: 'edit/:id', component: EditComponent },
+                    { path: 'edit/:id',component: FormsComponent},
+                    { path: 'edit/:id', component: EditComponent},
                     { path: 'forms2',component:Forms2Component},
                     { path: 'editTable',component:EdittableComponent},
                     { path: 'profile',component:ProfileComponent},

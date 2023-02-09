@@ -26,15 +26,14 @@ export class LoginComponent implements OnInit {
   }
   loginDetails: object = []
   onClick() {
-    this.service.broadCastMessage("button click")
-    this.service.retriveMessage().subscribe((res)=>console.log(res))
+    // this.service.broadCastMessage("button click")
+    // this.service.retriveMessage().subscribe((res)=>console.log(res))
     const body = {
       "username": this.form.controls.userName.value,
       "password": this.form.controls.password.value
     }
-    
     this.service.postApi(environment.login,body).subscribe((i: any) => {
-      console.log(i.status);
+      console.log(i);
       this.loginDetails = i
       this.loginVerification(this.loginDetails,body)
     })
@@ -43,6 +42,7 @@ export class LoginComponent implements OnInit {
         this.status = 'success'
         // this.service.sendRole('admin')
         this.role = "Admin"
+        console.log("hello",this.role);
         sessionStorage.setItem('role', this.role);
         this.router.navigateByUrl('dashboard/root');
       }
@@ -55,17 +55,22 @@ export class LoginComponent implements OnInit {
   //function for checking the login verification 
   loginVerification(data: any, body) {
     if (data.status == 'success') {
+
       if (data.response[0].Role == 'patient') {
         this.status='succes'
         this.router.navigateByUrl('dashboard/root');
+        this.role = "Patient"
+        sessionStorage.setItem('role', this.role);
         // this.service.getLoginUserId(data.response[0].Id)
-        sessionStorage.setItem('id',data.response[0].Id );
+        localStorage.setItem('id',data.response[0].Id );
       }
       else if (data.response[0].Role == 'doctor') {
         this.status='succes'
+        this.role = "Doctor"
+        sessionStorage.setItem('role', this.role);
         this.router.navigateByUrl('dashboard/root');
         // this.service.getLoginUserId(data.response[0].Id)
-        sessionStorage.setItem('id',data.response[0].Id );
+        localStorage.setItem('id',data.response[0].Id );
       }
     }
     if (this.status = "!success") {

@@ -1,0 +1,72 @@
+.formclass{
+  background-color:transparent
+}
+.btn {
+    float: right;
+    margin-right: 0.5%;
+    background-color:white;
+     color:#8b8b90;
+  }
+.mandatoryColor {
+    color: red
+  }
+  .dropdownClass {
+    height: 10rem
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+.logo {
+    align-items: center;
+}
+.loginBtn .p-button {
+    width: 100%;
+    background-color: rgba(31, 30, 30, 0.898);
+    color: #fff;
+}
+
+.p-button:enabled:hover {
+  background: none; 
+ 
+  
+}
+
+.h-screen {
+  background: grey;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  // background-image: url('/assets/logo2.png');
+  background-image: url('/assets/login_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 120vh;
+  padding-right: 5%;
+  // opacity:.7
+}
+::ng-deep .p-card{
+background: #252529;
+color: #f8f9fa;
+height:auto;
+width:200%
+}
+
+ .p-inputtext  {
+
+  width: 100%;
+}
+
+.textFields {
+  background-color: #f8f9fa ;
+}
+::ng-deep .p-dropdown{
+  width: 100%;
+}

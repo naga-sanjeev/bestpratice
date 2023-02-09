@@ -1,5 +1,5 @@
 <p-toast></p-toast>
-<p-panel header="editProfile">
+<!-- <p-panel header="editProfile">
     <ng-template pTemplate="icons">
         <p-button icon="pi pi-arrow-left" (click)="pannelback()">
         </p-button>&nbsp; &nbsp;
@@ -253,6 +253,319 @@
                         formControlName="role" placeholder="Role"[readonly]="true">
                 </div>
             </div>        
+            <div class=" col-12 p-col-6 p-md-6 p-sm-12 p-lg-12">
+                <button pButton class="btn" type="button"  label="Reset" (click)="reset()"></button>
+                <button pButton class="btn" type="button"  label="Update" (click)="update()"></button>
+            </div>
+            <br />
+        </form>
+    </p-card>
+</p-panel> -->
+
+<p-panel header="Add Member">
+    <ng-template pTemplate="icons">
+        <p-button icon="pi pi-arrow-left" (click)="pannelback()">
+        </p-button>&nbsp; &nbsp;
+    </ng-template>
+    <p-card class="cardform">
+        <form [formGroup]="editProfile">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class=" p-md-3 p-sm-6 p-lg-3 ">
+                    <span class="p-float-label">
+                        <input id="firstName" type="text" autocomplete="off" class="p-inputtext-lg" pInputText
+                            formControlName="firstName">
+                        <label for="input">FirstName<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('firstName').touched && this.editProfile.get('firstName').invalid && this.editProfile.get('firstName').errors.required">
+                            First Name is Required
+                        </span>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('firstName').touched && this.editProfile.get('firstName').invalid && this.editProfile.get('firstName').errors.maxlength">
+                            Maximum length is 30
+                        </span>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('firstName').touched && this.editProfile.get('firstName').invalid && this.editProfile.get('firstName').errors.pattern">
+                            Only alphabetrs are required
+                        </span>
+                    </div>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="middleName" type="text" autocomplete="off" class="p-inputtext-lg" pInputText
+                            formControlName="middleName">
+                        <label for="input">Middle Name</label>
+                    </span>
+                    <div>
+
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('middleName').touched && this.editProfile.get('middleName').invalid && this.editProfile.get('middleName').errors.maxlength">
+                            Maximum length is 30
+                        </span>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('middleName').touched && this.editProfile.get('middleName').invalid && this.editProfile.get('middleName').errors.pattern">
+                            Only alphabetrs are rquired
+                        </span>
+                    </div>
+                </div>
+                <div class="p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="lastName" type="text" autocomplete="off" class="p-inputtext-lg" pInputText
+                            formControlName="lastName">
+                        <label for="input">Last Name<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('lastName').touched && this.editProfile.get('lastName').invalid && this.editProfile.get('lastName').errors.required">
+                            Last Name is Required
+                        </span>
+
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('lastName').touched && this.editProfile.get('lastName').invalid && this.editProfile.get('lastName').errors.maxlength">
+                            Maximum length is 30
+                        </span>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('lastName').touched && this.editProfile.get('lastName').invalid && this.editProfile.get('lastName').errors.pattern">
+                            Only alphabetrs are rquired
+                        </span>
+                    </div>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="email" type="text" autocomplete="off" class="p-inputtext-lg" pInputText
+                            formControlName="email">
+                        <label for="input">Email<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('email').touched && this.editProfile.get('email').invalid && this.editProfile.get('email').errors.required">
+                            Email is required
+                        </span>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('email').touched && this.editProfile.get('email').invalid && this.editProfile.get('email').errors.email">
+                            Enter Valid email
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="   p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="phoneNumber" type="number" autocomplete="off" class="p-inputtext-lg" pInputText
+                            formControlName="phoneNumber">
+                        <label for="input">Phone Number<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('phoneNumber').touched && this.editProfile.get('phoneNumber').invalid && this.editProfile.get('phoneNumber').errors.required">
+                            Phone Number is required
+                        </span>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('phoneNumber').touched && this.editProfile.get('phoneNumber').invalid && this.editProfile.get('phoneNumber').errors.pattern">
+                            Minimum length is 10 and Maximum length is 15
+                        </span>
+                    </div>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="alternateNumber" type="number" autocomplete="off" class="p-inputtext-lg" pInputText
+                            formControlName="alternativeNumber">
+                        <label for="input">Alternate Number</label>
+                    </span>
+                    <div>
+
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('alternativeNumber').touched && this.editProfile.get('alternativeNumber').invalid && this.editProfile.get('alternativeNumber').errors.pattern">
+                            Minimum length is 10
+                        </span>
+                    </div>
+
+                </div>
+                <div class="  p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="age" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                            formControlName="age">
+                        <label for="input">Age<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('age').touched && this.editProfile.get('age').invalid && this.editProfile.get('age').errors.required">
+                            Age is required
+                        </span>
+
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('age').touched && this.editProfile.get('age').invalid && this.editProfile.get('age').errors.pattern">
+                            Minimum length is 2
+                        </span>
+                    </div>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="userName" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            formControlName="userName">
+                        <label for="input">User Name<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('userName').touched && this.editProfile.get('userName').invalid && this.editProfile.get('userName').errors.required">
+                            User Name is required
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="  p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="password" autocomplete="off" type="password" class="p-inputtext-lg" pInputText
+                            formControlName="password">
+                        <label for="input">Password<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('password').touched && this.editProfile.get('password').invalid && this.editProfile.get('password').errors.required">
+                            Enter Password
+                        </span>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('password').touched && this.editProfile.get('password').invalid && this.editProfile.get('password').errors.minlength">
+                            Password Minimum length is 5
+                        </span>
+                    </div>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <p-dropdown [options]="gender" placeholder="Select gender*"  [style]="{'height':'2.8rem'}"
+                        [showClear]="false" optionLabel="gen" optionValue="gen" formControlName="gender" >
+
+                    </p-dropdown>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('gender').touched && this.editProfile.get('gender').invalid && this.editProfile.get('gender').errors.required">
+                            Select Gender
+                        </span>
+                    </div>
+                </div>
+                <div class="  p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="addressLine1" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            formControlName="addressLine1">
+                        <label for="input">Address Line1<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('addressLine1').touched && this.editProfile.get('addressLine1').invalid && this.editProfile.get('addressLine1').errors.required">
+                            Address is Required
+                        </span>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('addressLine1').touched && this.editProfile.get('addressLine1').invalid && this.editProfile.get('addressLine1').errors.maxlength">
+                            Maximum length is 60
+                        </span>
+                    </div>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="addressLine2" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            formControlName="addressLine2">
+                        <label for="input">Address Line2</label>
+                    </span>
+                </div>
+            </div>
+            <br />
+            <div class="p-fluid p-formgrid p-grid">
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="city" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            formControlName="city">
+                        <label for="input">City<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('city').touched && this.editProfile.get('city').invalid && this.editProfile.get('city').errors.required">
+                           City is Required
+                        </span>
+                    </div>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="state" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            formControlName="state">
+                        <label for="input">State<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('state').touched && this.editProfile.get('state').invalid && this.editProfile.get('state').errors.required">
+                            State is Required
+                        </span>        
+                    </div>
+                </div>
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="country" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            formControlName="country">
+                        <label for="input">Country<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('country').touched && this.editProfile.get('country').invalid && this.editProfile.get('country').errors.required">
+                            Country is Required
+                        </span>
+                    </div>
+                </div>
+                <div class="  p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="pincode" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                            formControlName="pinCode">
+                        <label for="input">PinCode<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('pinCode').touched && this.editProfile.get('pinCode').invalid && this.editProfile.get('pinCode').errors.required">
+                            Pincode is Required
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="p-fluid p-formgrid p-grid">
+                <div class=" p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="height" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                            formControlName="height">
+                        <label for="input">Height<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('height').touched && this.editProfile.get('height').invalid && this.editProfile.get('height').errors.required">
+                            Please Enter Height
+                        </span>
+
+                    </div>
+                </div>
+                <div class="  p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="weight" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                            formControlName="weight">
+                        <label for="input">Weight<span class="mandatoryColor">*</span></label>
+                    </span>
+                    <div>
+                        <span class="validationtest"
+                            *ngIf="this.editProfile.get('weight').touched && this.editProfile.get('weight').invalid && this.editProfile.get('weight').errors.required">
+                            Please Enter Weight
+                        </span>
+                    </div>
+                </div>
+                <div class="  p-md-3 p-sm-6 p-lg-3">
+                    <span class="p-float-label">
+                        <input id="role" autocomplete="off" type="text" class="p-inputtext-lg" pInputText [readonly]="true"
+                            formControlName="role">
+                        <label for="input">Role<span class="mandatoryColor">*</span></label>
+                    </span>
+                </div>           
+            </div>
+            <br />
+         
             <div class=" col-12 p-col-6 p-md-6 p-sm-12 p-lg-12">
                 <button pButton class="btn" type="button"  label="Reset" (click)="reset()"></button>
                 <button pButton class="btn" type="button"  label="Update" (click)="update()"></button>

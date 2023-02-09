@@ -131,6 +131,9 @@ import { LineComponent } from './components/line/line.component';
 import { PieComponent } from './components/pie/pie.component';
 import { PolarComponent } from './components/polar/polar.component';
 import { RadarComponent } from './components/radar/radar.component';
+import { NewregisterComponent } from './components/newregister/newregister.component';
+import { Newregister2Component } from './components/newregister2/newregister2.component';
+import { NewloginComponent } from './components/newlogin/newlogin.component';
 
 
 // import { PatientComponent } from './components/patient/patient.component';
@@ -289,6 +292,12 @@ import { RadarComponent } from './components/radar/radar.component';
         PolarComponent,
         
         RadarComponent,
+        
+        NewregisterComponent,
+        
+        Newregister2Component,
+        
+        NewloginComponent,
         
     
         
