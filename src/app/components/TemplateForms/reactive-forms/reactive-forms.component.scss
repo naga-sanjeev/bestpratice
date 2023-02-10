@@ -1,14 +1,17 @@
 .btn {
-  // float: right;
-  // margin-right: 0.5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+    // float: right;
+    // margin-right: 0.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   .mandatoryColor {
     color: red
+  }
+  
+  .gap{
+  margin-top:1%;
   }
   
   input::-webkit-outer-spin-button,
@@ -17,7 +20,7 @@
     margin: 0;
   }
   
-  
+  /* Firefox */
   input[type=number] {
     -moz-appearance: textfield;
   }

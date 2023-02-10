@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 import { AppComponent } from 'src/app/app.component';
-import { AppMainComponent } from 'src/app/app.main.component';
 import { DataService } from 'src/app/data.service';
 import { environment } from 'src/environments2/environment';
 
@@ -35,7 +34,7 @@ export class DashboardComponent implements OnInit {
     this.items = [
       {
         label: 'Home',
-        routerLink: ['/dashboard/root']
+        routerLink: ['/dashboard']
       },
       {
         label: 'Charts',
@@ -70,20 +69,16 @@ export class DashboardComponent implements OnInit {
         label: "Forms",
         items: [{
           label: 'Reactive Forms',
-          routerLink: ['/dashboard/forms']
+          routerLink: ['/dashboard/reactive']
         },
         {
           label: 'Template Driven Forms',
-          routerLink: ['/dashboard/forms2']
+          routerLink: ['/dashboard/templateDriven']
         },
         ]
       },
       {
         label: 'Table',
-        routerLink: ['/dashboard/table']
-      },
-      {
-        label: 'Edit Table',
         routerLink: ['/dashboard/editTable']
       }
     ];

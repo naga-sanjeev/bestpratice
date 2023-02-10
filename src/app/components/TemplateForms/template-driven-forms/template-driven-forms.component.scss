@@ -1,11 +1,10 @@
 .btn {
-  // float: right;
-  // margin-right: 0.5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+    // float: right;
+    // margin-right: 0.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   .mandatoryColor {
     color: red
@@ -17,7 +16,10 @@
     margin: 0;
   }
   
-  
+  .gap{
+    margin-top:1%;
+    }
+    
   input[type=number] {
     -moz-appearance: textfield;
   }

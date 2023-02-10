@@ -90,50 +90,26 @@ import {VirtualScrollerModule} from 'primeng/virtualscroller';
 
 // Application Components
 import {AppComponent} from './app.component';
-import {AppMainComponent} from './app.main.component';
-import {AppTopBarComponent} from './app.topbar.component';
-import {AppFooterComponent} from './app.footer.component';
+// import {MenuService} from './app.menu.service';
 
-// Application services
-
-import {MenuService} from './app.menu.service';
-import { LogincComponent } from './components/loginc/loginc.component';
-
-import { EditRequirementsComponent } from './components/projectManager/edit-requirements/edit-requirements.component';
-
-import { ProjectRequirementsComponent } from './components/projectManager/project-requirements/project-requirements.component';
-import { DoctorslistComponent } from './components/projectManager/doctorslist/doctorslist.component';
-import { PatientlistComponent } from './components/projectManager/patientlist/patientlist.component';
-import { EditpatientComponent } from './components/projectManager/editpatient/editpatient.component';
-import { ListOfUsersComponent } from './components/projectManager/list-of-users/list-of-users.component';
-import { HomeComponent } from './components/projectManager/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { DoctordbComponent } from './components/doctor/doctordb/doctordb.component';
-import { PatientdbComponent } from './components/patient/patientdb/patientdb.component';
-import { AdmindbComponent } from './components/admin/admindb/admindb.component';
-import { AddusersComponent } from './components/admin/addusers/addusers.component';
-import { PatientpersonaldataComponent } from './components/doctor/patientpersonaldata/patientpersonaldata.component';
-import { ListofdoctorsComponent } from './components/patient/listofdoctors/listofdoctors.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RegisterComponent } from './components/register/register.component';
 import { CommonInterceptor } from './common.interceptor';
 import { DataService } from './data.service';
-import { RootComponent } from './components/root/root.component';
-import { FormsComponent } from './components/forms/forms.component';
-import { EditComponent } from './components/edit/edit.component';
-import { Forms2Component } from './components/forms2/forms2.component';
 import { EdittableComponent } from './components/edittable/edittable.component';
-import { BarComponent } from './components/bar/bar.component';
 import { ProfileComponent } from './components/profile/profile/profile.component';
 import { EditprofileComponent } from './components/profile/editprofile/editprofile.component';
-import { DoughnutComponent } from './components/doughnut/doughnut.component';
-import { LineComponent } from './components/line/line.component';
-import { PieComponent } from './components/pie/pie.component';
-import { PolarComponent } from './components/polar/polar.component';
-import { RadarComponent } from './components/radar/radar.component';
 import { NewregisterComponent } from './components/newregister/newregister.component';
-import { Newregister2Component } from './components/newregister2/newregister2.component';
-import { NewloginComponent } from './components/newlogin/newlogin.component';
+import { BarsComponent } from './components/charts/bars/bars.component';
+import { DoughnutsComponent } from './components/charts/doughnuts/doughnuts.component';
+import { PiesComponent } from './components/charts/pies/pies.component';
+import { LinesComponent } from './components/charts/lines/lines.component';
+import { PolarsComponent } from './components/charts/polars/polars.component';
+import { RadarsComponent } from './components/charts/radars/radars.component';
+import { ReactiveFormsComponent } from './components/TemplateForms/reactive-forms/reactive-forms.component';
+import { TemplateDrivenFormsComponent } from './components/TemplateForms/template-driven-forms/template-driven-forms.component';
+import { RegisterComponent } from './components/TemplateForms/register/register.component';
+import { NewLoginComponent } from './components/TemplateForms/new-login/new-login.component';
 
 
 // import { PatientComponent } from './components/patient/patient.component';
@@ -230,74 +206,44 @@ import { NewloginComponent } from './components/newlogin/newlogin.component';
     ],
     declarations: [
         AppComponent,
-        AppMainComponent,
-        AppTopBarComponent,
-        AppFooterComponent,
-        LogincComponent,
-        EditRequirementsComponent,
-        
-        ProjectRequirementsComponent,
-        
-        DoctorslistComponent,
-        
-        PatientlistComponent,
-        
-        EditpatientComponent,
-        
-        ListOfUsersComponent,
-        
-        HomeComponent,
         
         LoginComponent,
         
-        DoctordbComponent,
         
-        PatientdbComponent,
-        
-        AdmindbComponent,
-        
-        AddusersComponent,
-        
-        PatientpersonaldataComponent,
-        
-        ListofdoctorsComponent,
         
         DashboardComponent,
-        
-        RegisterComponent,
-        
-        RootComponent,
-        
-        
-        FormsComponent,
-        
-        EditComponent,
-        
-        Forms2Component,
+    
         
         EdittableComponent,
         
-        BarComponent,
+    
         
         ProfileComponent,
         
         EditprofileComponent,
         
-        DoughnutComponent,
-        
-        LineComponent,
-        
-        PieComponent,
-        
-        PolarComponent,
-        
-        RadarComponent,
         
         NewregisterComponent,
         
-        Newregister2Component,
+        BarsComponent,
         
-        NewloginComponent,
+        DoughnutsComponent,
+        
+        PiesComponent,
+        
+        LinesComponent,
+        
+        PolarsComponent,
+        
+        RadarsComponent,
+        
+        ReactiveFormsComponent,
+        
+        TemplateDrivenFormsComponent,
+        
+        RegisterComponent,
+        
+        NewLoginComponent,
         
     
         
@@ -307,7 +253,7 @@ import { NewloginComponent } from './components/newlogin/newlogin.component';
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
      
-        MenuService,DataService,
+        DataService,
         {provide:HTTP_INTERCEPTORS,useClass:CommonInterceptor,multi:true}
         // BreadcrumbService,
     ],

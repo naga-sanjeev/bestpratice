@@ -2,12 +2,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { AppTopBarComponent } from './app.topbar.component';
-import { AppBreadcrumbComponent } from './app.breadcrumb.component';
-// import { AppProfileComponent } from './app.profile.component';
-// import { BreadcrumbService } from './app.breadcrumb.service';
-import { AppFooterComponent } from './app.footer.component';
-// import { AppMenuComponent } from './app.menu.component';
 import { AccordionModule } from 'primeng/accordion';
 import { PanelModule } from 'primeng/panel';
 
@@ -17,11 +11,6 @@ describe('AppComponent', () => {
             imports: [NoopAnimationsModule, RouterTestingModule, AccordionModule, PanelModule],
             declarations: [
                 AppComponent,
-                AppTopBarComponent,
-                // AppMenuComponent,
-                // AppProfileComponent,
-                AppFooterComponent,
-                AppBreadcrumbComponent
             ],
             providers: []
         }).compileComponents();

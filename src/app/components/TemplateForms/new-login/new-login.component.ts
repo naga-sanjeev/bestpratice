@@ -1,17 +1,16 @@
-import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { DataService } from 'src/app/data.service';
 import { environment } from 'src/environments2/environment';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  providers: [MessageService]
+  selector: 'app-new-login',
+  templateUrl: './new-login.component.html',
+  styleUrls: ['./new-login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class NewLoginComponent implements OnInit {
   constructor(private router: Router, private fb: FormBuilder, private messageService: MessageService, private service: DataService) { }
   //crearting a form  to login 
   form: FormGroup

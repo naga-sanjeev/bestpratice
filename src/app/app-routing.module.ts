@@ -1,94 +1,46 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { LogincComponent } from './components/loginc/loginc.component';
-// import { AuthGuard } from './services/auth.guard';
-import { EditRequirementsComponent } from './components/projectManager/edit-requirements/edit-requirements.component';
-
-import { ProjectRequirementsComponent } from './components/projectManager/project-requirements/project-requirements.component';
-import { AppMainComponent } from './app.main.component';
-import { AdmindbComponent } from './components/admin/admindb/admindb.component';
-import { AddusersComponent } from './components/admin/addusers/addusers.component';
-import { DoctordbComponent } from './components/doctor/doctordb/doctordb.component';
-import { PatientpersonaldataComponent } from './components/doctor/patientpersonaldata/patientpersonaldata.component';
-import { PatientdbComponent } from './components/patient/patientdb/patientdb.component';
-import { ListofdoctorsComponent } from './components/patient/listofdoctors/listofdoctors.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { AdminGuard } from './admin.guard';
-import { NewadminComponent } from './dashboard/newadmin/newadmin.component';
-import { RootComponent } from './components/root/root.component';
-
-import { FormsComponent } from './components/forms/forms.component';
-import { EditComponent } from './components/edit/edit.component';
-import { Forms2Component } from './components/forms2/forms2.component';
 
 import { EdittableComponent } from './components/edittable/edittable.component';
 import { ProfileComponent } from './components/profile/profile/profile.component';
 import { EditprofileComponent } from './components/profile/editprofile/editprofile.component';
-import { BarComponent } from './components/bar/bar.component';
-import { DoughnutComponent } from './components/doughnut/doughnut.component';
-import { PieComponent } from './components/pie/pie.component';
-import { LineComponent } from './components/line/line.component';
-import { PolarComponent } from './components/polar/polar.component';
-import { RadarComponent } from './components/radar/radar.component';
 import { NewregisterComponent } from './components/newregister/newregister.component';
-import { Newregister2Component } from './components/newregister2/newregister2.component';
-import { NewloginComponent } from './components/newlogin/newlogin.component';
+import { BarsComponent } from './components/charts/bars/bars.component';
+import { DoughnutsComponent } from './components/charts/doughnuts/doughnuts.component';
+import { PiesComponent } from './components/charts/pies/pies.component';
+import { LinesComponent } from './components/charts/lines/lines.component';
+import { PolarsComponent } from './components/charts/polars/polars.component';
+import { RadarsComponent } from './components/charts/radars/radars.component';
+import { NewLoginComponent } from './components/TemplateForms/new-login/new-login.component';
+import { ReactiveFormsComponent } from './components/TemplateForms/reactive-forms/reactive-forms.component';
+import { TemplateDrivenFormsComponent } from './components/TemplateForms/template-driven-forms/template-driven-forms.component';
+import { RegisterComponent } from './components/TemplateForms/register/register.component';
 
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            // {
-            //     path: '', component: LogincComponent
-            // }, 
-            {path:'register',component:RegisterComponent},
             {path:'newRegister',component:NewregisterComponent},
-            {path:'nr2',component:Newregister2Component},
-            {path:'nl',component:NewloginComponent},
             {path:'',component:LoginComponent},
             {
                 path:'dashboard',component:DashboardComponent,
                 children:[
-                    { path:'root',component:RootComponent},
-                    { path: 'table', component: AdmindbComponent },
-                    { path: 'forms', component: FormsComponent },
-                    { path: 'edit/:id',component: FormsComponent},
-                    { path: 'edit/:id', component: EditComponent},
-                    { path: 'forms2',component:Forms2Component},
+                    { path: 'reactive', component: ReactiveFormsComponent },
+                    { path: 'templateDriven',component:TemplateDrivenFormsComponent},
                     { path: 'editTable',component:EdittableComponent},
                     { path: 'profile',component:ProfileComponent},
                     { path: 'editProfile',component:EditprofileComponent},
-                    { path: 'bar',component:BarComponent},
-                    { path: 'doughnut',component:DoughnutComponent},
-                    { path: 'pie',component:PieComponent},
-                    { path: 'line',component:LineComponent},
-                    { path: 'polar',component:PolarComponent},
-                    { path: 'radar',component:RadarComponent}
+                    { path: 'bar',component:BarsComponent},
+                    { path: 'doughnut',component:DoughnutsComponent},
+                    { path: 'pie',component:PiesComponent},
+                    { path: 'line',component:LinesComponent},
+                    { path: 'polar',component:PolarsComponent},
+                    { path: 'radar',component:RadarsComponent}
                 ]          
             },
-            // { path: 'dashboard', loadChildren:()=> import('./dashboard/dashboard.module').then(m=>m.DashboardModule),canActivate:[AdminGuard]},
-            { path: 'admin', loadChildren:()=> import('./admin/admin.module').then(m=>m.AdminModule)},
-            {
-                path: 'root', component: AppMainComponent,
-                children: [
-                    {
-                        path: "projectrequirement",
-                        component: ProjectRequirementsComponent,
-                    },
-                    { path: 'edit-requiremenent', component: EditRequirementsComponent },
-                    { path: 'admin', component: AdmindbComponent },
-                    { path: 'addusers', component: AddusersComponent },
-                    { path: 'doctor', component: DoctordbComponent,canActivate:[AdminGuard] },
-                    { path: 'patientpd', component: PatientpersonaldataComponent },
-                    { path: 'patient', component: PatientdbComponent,canActivate:[AdminGuard]  },
-                    { path: 'listofdoctors', component: ListofdoctorsComponent,canActivate:[AdminGuard]  }
-                ]
-            },
-            { path: "login", component: LogincComponent },
-            { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-            { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule) },
+            
    
             
         ], { scrollPositionRestoration: 'enabled' })
