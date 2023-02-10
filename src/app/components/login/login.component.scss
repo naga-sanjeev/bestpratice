@@ -12,7 +12,7 @@
 //     display:flex
 // }
 .h-screen {
-    background: grey;
+    // background: grey;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,8 @@
 ::ng-deep .p-card{
 background: #252529;
 color: #f8f9fa;
-opacity: .7;
+width:100%
+// opacity: .7;
 }
 
 a {

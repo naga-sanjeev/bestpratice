@@ -1,8 +1,12 @@
-<div class="card">
-    <h6><b> Bar Graph</b></h6>
-    <span class="information">
-        X-axis: Months &nbsp;
-      Y-axis: Number Of Employyes Joined
-    </span>
-    <p-chart   type="bar" [data]="basicData" [options]="basicOptions" class="bars"></p-chart>
+<div class="p-grid">
+  <div class="card  p-col-11">
+    <div class="p-grid">
+      <b class="p-col-10"> Bar Graph</b>
+      <span class="p-col-2">X-axis: Months</span> 
+    </div>
+        <span class="information">Y-axis: Number Of Employyes Joined</span>
+    <p-chart type="bar" [data]="basicData" [options]="basicOptions" class="bars"></p-chart>
+  </div>
 </div>
+
+

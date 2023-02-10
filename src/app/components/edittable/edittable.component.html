@@ -1,7 +1,15 @@
 <p-toast></p-toast>
-<div class="table">
+
+<div class="search">
+    <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input id="firstName" placeholder="Search" type="text" autocomplete="off" class="p-inputtext-lg" pInputText>
+    </span>
+</div>
+<br/><br/><br/>
+<div class=" ">
     <p-card>
-        <p-table [columns]="" [value]="usersData"  dataKey="edit" editMode="row" >
+        <p-table [columns]="" [value]="usersData" dataKey="edit" editMode="row">
             <ng-template pTemplate="header">
                 <tr>
                     <!-- <th  style="width:5%">ID 
@@ -16,27 +24,27 @@
                     </th>
                     <th  style="width:5%">Action 
                     </th> -->
-    
-                    <th  >ID 
+
+                    <th>ID
                     </th>
-                    <th  >User Name 
+                    <th>User Name
                     </th>
-                    <th  >Phone Number
+                    <th>Phone Number
                     </th>
-                    <th  >Email 
+                    <th>Email
                     </th>
-                    <th >  &nbsp;&nbsp;&nbsp;&nbsp;Role 
+                    <th> &nbsp;&nbsp;&nbsp;&nbsp;Role
                     </th>
-                    <th  > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action 
+                    <th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action
                     </th>
-    
+
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-data let-editing="editing" let-ri="rowIndex">
                 <tr [pEditableRow]="data" style="cursor: pointer;" class="textCenter">
-                   <td>
-                                {{data.Id}}
-                           
+                    <td>
+                        {{data.Id}}
+
                     </td>
                     <td pEditableColumn>
                         <p-cellEditor>
@@ -63,21 +71,26 @@
                             <ng-template pTemplate="input">
                                 <input pInputText type="text" [(ngModel)]="data.Email">
                             </ng-template>
-                            <ng-template pTemplate="output" >
+                            <ng-template pTemplate="output">
                                 {{data.Email}}
                             </ng-template>
                         </p-cellEditor>
                     </td>
-                    <td pEditableColumn  >
-                       {{data.Role}}
+                    <td pEditableColumn>
+                        {{data.Role}}
                     </td>
                     <td style="text-align:center">
-                        <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(data)" class="p-button-rounded p-button-text"></button>
-                        <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(data)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
-                        <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" class="p-button-rounded p-button-text p-button-danger"></button>
+                        <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
+                            (click)="onRowEditInit(data)" class="p-button-rounded p-button-text"></button>
+                        <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
+                            (click)="onRowEditSave(data)"
+                            class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
+                        <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
+                            class="p-button-rounded p-button-text p-button-danger"></button>
                     </td>
                 </tr>
             </ng-template>
         </p-table>
-    </p-card> 
+    </p-card>
+    <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
 </div>
