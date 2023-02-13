@@ -3,49 +3,28 @@
 <div class="search">
     <span class="p-input-icon-left">
         <i class="pi pi-search"></i>
-        <input id="firstName" placeholder="Search" type="text" autocomplete="off" class="p-inputtext-lg" pInputText>
-    </span>
+        <input id="firstName" placeholder="Search" type="text"  name="username" [(ngModel)] ="username" 
+        (ngModelChange)="Search()" autocomplete="off" class="p-inputtext-lg" pInputText>
+        </span>
 </div>
 <br/><br/><br/>
 <div class=" ">
     <p-card>
-        <p-table [columns]="" [value]="usersData" dataKey="edit" editMode="row">
+        <p-table [columns]="" [value]="usersData" dataKey="edit" editMode="row"  [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" >
             <ng-template pTemplate="header">
-                <tr>
-                    <!-- <th  style="width:5%">ID 
-                    </th>
-                    <th  style="width:10%">User Name 
-                    </th>
-                    <th  style="width:10%">Phone Number
-                    </th>
-                    <th  style="width:15%">Email 
-                    </th>
-                    <th  style="width:5%">Role 
-                    </th>
-                    <th  style="width:5%">Action 
-                    </th> -->
-
-                    <th>ID
-                    </th>
-                    <th>User Name
-                    </th>
-                    <th>Phone Number
-                    </th>
-                    <th>Email
-                    </th>
-                    <th> &nbsp;&nbsp;&nbsp;&nbsp;Role
-                    </th>
-                    <th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action
-                    </th>
-
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>User Name</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th> Role</th>
+                        <th> Action</th>
+                    </tr>
             </ng-template>
             <ng-template pTemplate="body" let-data let-editing="editing" let-ri="rowIndex">
                 <tr [pEditableRow]="data" style="cursor: pointer;" class="textCenter">
-                    <td>
-                        {{data.Id}}
-
-                    </td>
+                    <td>{{data.Id}}</td>
                     <td pEditableColumn>
                         <p-cellEditor>
                             <ng-template pTemplate="input">
@@ -91,6 +70,14 @@
                 </tr>
             </ng-template>
         </p-table>
+    <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
+    <div class="p-grid align-items-center">
+        <div class="p-col-1">
+        </div>
+        <div class="p-col-10">
+            <p-paginator [first]="first" [rows]="10" [totalRecords]="totalRecords2"  (onPageChange)="onPageChange($event)"
+            [showJumpToPageDropdown]="true" [showPageLinks]="false"></p-paginator>
+        </div>
+    </div> -->
     </p-card>
-    <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
 </div>

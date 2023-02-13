@@ -131,7 +131,7 @@ export class TemplateDrivenFormsComponent implements OnInit {
       // this.service.postApi(environment.postUserData,reqBody).subscribe((i)=>{
       //   console.log(i);
       //   setTimeout(()=>{
-      //     this.router.navigateByUrl('/dashboard/table')
+      //     this.router.navigateByUrl('/dashboard/editTable')
       //    },2000)
       //   this.messageService.add({ severity: 'success', summary: 'Updated successully', detail: '',life:3000 });
       // })

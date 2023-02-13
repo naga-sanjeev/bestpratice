@@ -12,8 +12,6 @@ import { environment } from 'src/environments2/environment';
   styleUrls: ['./reactive-forms.component.scss']
 })
 export class ReactiveFormsComponent implements OnInit {
-
-    
   constructor(private fb: FormBuilder, private router: Router, private service: DataService, private https: HttpClient, private messageService: MessageService,private route: ActivatedRoute) { }
   gender: object=[];
   roles: any
@@ -31,8 +29,8 @@ export class ReactiveFormsComponent implements OnInit {
   role:string
   ngOnInit(): void {
     this.form();
-    this.getRole()
   }
+  // to create the form
   form(){
     this.roles = [
       { role: 'doctor' },
@@ -72,67 +70,7 @@ export class ReactiveFormsComponent implements OnInit {
       this.changeValidators()
     })
   }
-  getRole(){
-    this.role = sessionStorage.getItem('role' || '')
-    console.log(this.role);
-    if(this.role=="Admin")
-    {
-      this.service.editId.subscribe((i:number)=>{
-        console.log("forms",i)
-        this.id=i
-      })
-      this.getUserData()   
-    }
-  }
-  edit:boolean=false
-  getUserData() {
-    console.log(this.id);
-    console.log(this.route.snapshot.params.id);
-    if(this.route.snapshot.params.id==undefined){
-      this.edit=false;
-      console.log(this.edit);
-    }
-    else{
-      console.log(this.id);
-      this.edit=true
-      console.log(this.edit);
-      this.service.getUserById(environment.getUserDataById,this.route.snapshot.params.id).subscribe((res: any) => {
-        console.log(res);
-        this.userData = res.respones[0];
-        console.log(this.userData);
-        console.log(this.userData.Firstname);       
-          this.regForm.patchValue({
-            firstName: res.respones[0].Firstname,
-            middleName: res.respones[0].Middlename,
-            lastName: res.respones[0].LastName,
-            email: res.respones[0].Email,
-            phoneNumber: res.respones[0].PhoneNumber,
-            alternativeNumber: res.respones[0].AlternativeNumber,
-            age: res.respones[0].Age,
-            gender: res.respones[0].Gender,
-            userName: res.respones[0].username,
-            password: res.respones[0].password,
-            addressLine1: res.respones[0].Addressline1,
-            addressLine2: res.respones[0].Addressline2,
-            city: res.respones[0].City,
-            state: res.respones[0].State,
-            country: res.respones[0].Country,
-            pinCode: res.respones[0].Pincode,
-            height: res.respones[0].height,
-            weight: res.respones[0].weight,
-            role: res.respones[0].Role,
-            bloodGroup:res.respones[0].Bloodgroup,
-            availbility:res.respones[0].availbility,
-            designation:res.respones[0].designation,
-            patientProblem:res.respones[0].patientproblem
-        })
-        this.onChange()
-      })
-    }
-  }
-  pannelBack() {
-    this.router.navigate(["dashboard/table"])
-  }
+  //adding validators based on the role using dropdown
   changeValidators() {
     console.log(this.regForm.get('role').value);
     if (this.regForm.get("role").value == 'doctor') {
@@ -155,6 +93,20 @@ export class ReactiveFormsComponent implements OnInit {
     this.regForm.get('bloodGroup').updateValueAndValidity();
     this.regForm.get('patientProblem').updateValueAndValidity();
   }
+  //selecting the role
+  onChange() {
+    this.selectRole = this.regForm.controls.role.value
+    if (this.selectRole == "doctor") {
+      this.addDoctor = true;
+      this.addPatient = false;
+      this.nothing = false
+    }
+    else if (this.selectRole == "patient") {
+      this.addPatient = true;
+      this.addDoctor = false;
+      this.nothing = false;
+    }
+  } 
   onBasicUploadAuto(event:any) {
     console.log("hai");
     console.log(event);
@@ -204,81 +156,13 @@ export class ReactiveFormsComponent implements OnInit {
       this.service.postApi(environment.postUserData,reqBody).subscribe((i)=>{
         console.log(i);
         setTimeout(()=>{
-          this.router.navigateByUrl('/dashboard/table')
-         },2000)
+          this.router.navigateByUrl('/dashboard/editTable')
+         },1000)
         this.messageService.add({ severity: 'success', summary: 'Updated successully', detail: '',life:3000 });
       })
-    
     }
   }
-  onChange() {
-    this.selectRole = this.regForm.controls.role.value
-    if (this.selectRole == "doctor") {
-      this.addDoctor = true;
-      this.addPatient = false;
-      this.nothing = false
-    }
-    else if (this.selectRole == "patient") {
-      this.addPatient = true;
-      this.addDoctor = false;
-      this.nothing = false;
-    }
-  }       
-  update() {
-    //to find the controls whether it is valid or not
-    console.log('regForm ', this.regForm)
-    if (this.regForm.invalid || this.regForm.get('role').invalid) {
-      console.log("invalid");
-      const controls = this.regForm.controls;
-      Object.keys(controls).forEach((key) => {
-        controls[key].markAsTouched();
-      });
-    }
-    else {
-      const reqBody = {
-        "Firstname": this.regForm.controls.firstName.value,
-        "Middlename": this.regForm.controls.middleName.value,
-        "LastName": this.regForm.controls.lastName.value,
-        "Email": this.regForm.controls.email.value,
-        "PhoneNumber": this.regForm.controls.phoneNumber.value,
-        "Age": this.regForm.controls.age.value,
-        "Role": this.regForm.controls.role.value,
-        "CreatedBy": "null",
-        "username": this.regForm.controls.userName.value,
-        "password": this.regForm.controls.password.value,
-        "Gender": this.regForm.controls.gender.value,
-        "Addressline1": this.regForm.controls.addressLine1.value,
-        "Addressline2": this.regForm.controls.addressLine2.value,
-        "State": this.regForm.controls.state.value,
-        "Pincode": this.regForm.controls.pinCode.value,
-        "AlternativeNumber": this.regForm.controls.alternativeNumber.value || "null",
-        "City": this.regForm.controls.city.value,
-        "Country": this.regForm.controls.country.value,
-        "Bloodgroup": this.regForm.controls.bloodGroup.value,
-        "patientproblem": this.regForm.controls.patientProblem.value,
-        "height": this.regForm.controls.height.value,
-        "weight": this.regForm.controls.weight.value,
-        "designation": this.regForm.controls.designation.value,
-        "availbility": this.regForm.controls.availbility.value,
-        "appointment": "null",
-        "doc_prescription_1": "null",
-        "doc_prescription_2": "null",
-      }
-      console.log(reqBody);
-     this.service.updateUserData(environment.updateUserData,this.route.snapshot.params.id,reqBody).subscribe((i)=>{
-       console.log(i);
-       setTimeout(()=>{
-        this.router.navigateByUrl('/dashboard/table')
-       },2000)
-       this.messageService.add({ severity: 'success', summary: 'Updated successully', detail: '',life:3000 });
-     })
-    }
-  }
- 
   reset() {
     this.regForm.reset();
   }
-
-  
-
 }

@@ -5,15 +5,17 @@
 //     padding: 0;
 // }
 
-// .footer {
-//     position: fixed;
-//     bottom: 0;
-//     width: 100%;
-//     height: 5vh;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// }
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    color:black
+}
 
 // .text-center {
 //     height: 100%;
@@ -22,13 +24,13 @@
 //     align-items: center;
 // }
 
-//header menu-bar
-// ::ng-deep .p-menubar {
-//     padding: 0.8rem;
-//     background-color: #3F51B5;
-//     color: #f8f9fa;
-//     font-size: x-large;
-// }
+header menu-bar
+::ng-deep .p-menubar {
+    padding: 0.8rem;
+    background-color: #3F51B5;
+    color: #f8f9fa;
+    font-size: x-large;
+}
 
 // .main-content {
 //     margin-top: 44px;
@@ -41,17 +43,17 @@
 //     position:static
 // }
 //side Menu
-// .side-menu {
-//     margin-top: 50px;
-//     background-color:white;
-//     // width:15%;
-//     // width: 100%; 
-//     height: 710px;
-// }
+.side-menu {
+    // margin-top: 50px;
+    background-color:white;
+    // width:15%;
+    // width: 100%; 
+    height: 700px;
+}
 
-// ::ng-deep .p-panelmenu .p-panelmenu-header>a {
-//     border: 0px solid red;
-// }
+::ng-deep .p-panelmenu .p-panelmenu-header>a {
+    border: 0px solid red;
+}
 
 // ::ng-deep .p-panelmenu .p-panelmenu-header>a {
 //     padding: 1.1rem;
@@ -79,39 +81,39 @@
      padding: 0rem; 
 }
 //center
-.main{
-    height:auto;
-}
+// .main{
+//     height:auto;
+// }
 
 //side menu
-.side-menu {
-    padding: 0rem; 
-    height:100%;
-    background-color: blue;
-}
+// .side-menu {
+//     padding: 0rem; 
+//     height:100%;
+//     background-color: blue;
+// }
 
-::ng-deep .p-panelmenu .p-panelmenu-header>a {
-    border: 0px solid red;
-    border:none
-}
+// ::ng-deep .p-panelmenu .p-panelmenu-header>a {
+//     border: 0px solid red;
+//     border:none
+// }
 //main content center
-.main-content {   
-    // margin-left:20rem
-    position:fixed;
-    height: 100%;
-}
+// .main-content {   
+//     // margin-left:20rem
+//     position:fixed;
+//     height: 100%;
+// }
 
 //footer
-.footer {
-    position: fixed;
-    bottom: 0;
-    height: 5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: pink;
-    color:black
-}
+// .footer {
+//     position: fixed;
+//     bottom: 0;
+//     height: 5vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background-color: pink;
+//     color:black
+// }
 // .p-overlaypanel {
 //     display: visible;
 //     background: #e0e0e0;
