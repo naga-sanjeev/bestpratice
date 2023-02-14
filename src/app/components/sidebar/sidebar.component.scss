@@ -11,3 +11,103 @@
     display: block;
     background: rgb(65, 65, 65);
 }
+
+
+// 320px — 480px: Mobile devices.
+// 481px — 768px: iPads, Tablets.
+// 769px — 1024px: Small screens, laptops.
+// 1025px — 1200px: Desktops, large screens.
+// 1201px and more — Extra large screens, TV.
+
+@media (min-width: 320px) and (max-width: 480px) {
+    ::ng-deep  .p-col-2 {
+        padding-top: 50px;
+        width: 20%;
+    }
+
+    ::ng-deep .main {
+        width: 450px;
+    }
+
+    ::ng-deep .p-col-11 {
+        width: 391px;
+        padding-left: 80px;
+        width: 339px;
+        padding-right: 31px;
+        padding-top: 20px;
+    }
+    
+    
+}
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+    ::ng-deep  .p-col-2 {
+        padding-top: 46px;
+    }
+    
+    ::ng-deep .p-col-11 {
+        width: 316px;
+    padding-right: 72px;
+    padding-top: 30px;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    ::ng-deep  .p-col-2 {
+        padding-top: 40px;
+    }
+    
+    ::ng-deep .p-col-11 {
+        width: 500px;
+    padding-right: 92px;
+    padding-top: 30px;
+    }
+
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    ::ng-deep  .p-col-2 {
+        padding-top: 30px;
+    }
+
+    ::ng-deep .p-col-11 {
+        width: 716px;
+        padding-right: 175px;
+        padding-top: 50px;
+    }
+    
+}
+
+
+
+@media (min-width: 1201px) and (max-width: 1500px) {
+    ::ng-deep  .p-col-2 {
+        padding-top: 24px;
+    }
+    
+    ::ng-deep .p-col-11 {
+        width: 916px;
+        padding-right: 241px;
+        padding-top: 32px;
+    }
+
+}
+
+
+@media (min-width: 1501px) and (max-width: 1700px) {
+    ::ng-deep  .p-col-2 {
+        padding-top: 12px;
+    }
+    
+    ::ng-deep .p-col-11 {
+        width: 1055px;
+        padding-top: 50px;
+        padding-right: 260px;
+       
+    }
+
+
+}
