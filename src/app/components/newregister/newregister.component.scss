@@ -24,22 +24,17 @@ background: grey;
 display: flex;
 justify-content: center;
 align-items: center;
-// background-image: url('/assets/logo2.png');
 background-image: url('/assets/login_bg.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
-height: 112vh;
+height: auto;
 // padding-right: 5%;
 // opacity:.7
 }
-.card{
-background: #252529;
-// color: #f8f9fa;
-// height:auto;
-}
 
-::ng-deep  .p-card{
+
+:host ::ng-deep  .p-card{
 background: #252529;
 color: #f8f9fa;
 height:auto;

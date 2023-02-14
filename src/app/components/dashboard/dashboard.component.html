@@ -1,151 +1,33 @@
-<!-- <div class="grid col-12 overFlow ">
-    <div class="col-4 ">
-        <div class="header">
-            <div class="color">
-                <p-menubar [model]="item2" class="fixed-top">
-                    <ng-template pTemplate="start">
-                        Angular Application
-                    </ng-template>
-                      
-                    <ng-template pTemplate="end">
-
-                        <div style="text-align: center;">
-                            <p-button icon="pi pi-user" (click)="op.toggle($event)"></p-button>&nbsp;&nbsp;
-                            <p-overlayPanel #op [style]="{width: '150px'}">
-                                <ul class="">
-                                    <li role="menuitem">
-                                        <a href="#"routerLink="profile" >
-                                            <i class="pi pi-user"></i>&nbsp;
-                                            <span >Profile</span>
-                                        </a>
-                                    </li> <br />
-                                    <li role="menuitem">
-                                        <a href="#" routerLink="">
-                                            <i class="pi pi-sign-out"></i>&nbsp;
-                                            <span>Sign Out</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </p-overlayPanel>
-                        </div>
-                    </ng-template>
-                </p-menubar>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 main">
-        <div class="p-col-2 side-menu">
-            <p-panelMenu [model]="items">
-
-            </p-panelMenu>
-        </div>
-        <div     class="p-col-10  main-content">
-                <router-outlet></router-outlet>
-        </div>
-    </div>
-
-    <div class="footer" style="background-color: white">
-        <div style="color: black;"> © {{currenYearFormat}} Miracle Software System Copyright</div>
-    </div>
-</div> -->
-
-
-<p-card>
-        <ng-template pTemplate="header" >
-            <p-menubar [model]="item2" class="fixed-top">
-                <ng-template pTemplate="start">
-                    Angular Application
-                </ng-template>
-                <ng-template pTemplate="end">
-                    <div style="text-align: center;">
-                        <p-button icon="pi pi-user" (click)="op.toggle($event)"></p-button>&nbsp;&nbsp;
-                        <p-overlayPanel #op [style]="{width: '150px'}">
-                            <ul class="">
-                                <li role="menuitem">
-                                    <a href="#"routerLink="profile" >
-                                        <i class="pi pi-user"></i>&nbsp;
-                                        <span >Profile</span>
-                                    </a>
-                                </li> <br />
-                                <li role="menuitem">
-                                    <a href="#" routerLink="">
-                                        <i class="pi pi-sign-out"></i>&nbsp;
-                                        <span>Sign Out</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </p-overlayPanel>
-                    </div>
-                </ng-template>
-            </p-menubar>
+<!-- <p-card class="screen">
+        <ng-template pTemplate="header">
+            
+                <app-topbar></app-topbar>
+               
         </ng-template>
-        <div class="p-grid main" >
-            <div class="p-col-2 side-menu">
-                <p-panelMenu [model]="items">
-    
-                </p-panelMenu>
-            </div>
-            <div     class="p-col-10  ">
-                    <router-outlet></router-outlet>
-            </div>
-        </div>
-
-        <ng-template pTemplate="footer">
-            <div class="p-grid">
-                <div class="p-col-12 footer">
-                    © {{currenYearFormat}} Miracle Software System Copyright
+            <div class="p-grid main">
+                <div class="p-col-2">
+                    <app-sidebar></app-sidebar>
                 </div>
-            </div>
+                <div class="p-col-10">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>     
+        <ng-template pTemplate="footer">
+            <app-footer></app-footer>
         </ng-template>
-    </p-card>
+    </p-card> -->
 
 
+<div class="screen">
+    <app-topbar></app-topbar>
+    <div class="p-grid main">
+        <div class="p-col-2">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="p-col-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
 
-    <!-- <div class="screen">
-        <div class="p-grid ">
-            <div class="p-col-12">
-                <p-menubar [model]="item2" class="fixed-top">
-                    <ng-template pTemplate="start">
-                        Angular Application
-                    </ng-template>
-                    <ng-template pTemplate="end">
-                        <div style="text-align: center;">
-                            <p-button icon="pi pi-user" (click)="op.toggle($event)"></p-button>&nbsp;&nbsp;
-                            <p-overlayPanel #op [style]="{width: '150px'}">
-                                <ul class="">
-                                    <li role="menuitem">
-                                        <a href="#" routerLink="profile">
-                                            <i class="pi pi-user"></i>&nbsp;
-                                            <span>Profile</span>
-                                        </a>
-                                    </li> <br />
-                                    <li role="menuitem">
-                                        <a href="#" routerLink="">
-                                            <i class="pi pi-sign-out"></i>&nbsp;
-                                            <span>Sign Out</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </p-overlayPanel>
-                        </div>
-                    </ng-template>
-                </p-menubar>
-            </div>
-        </div>
-        <div class="p-grid main">
-            <div class="p-col-2 side-menu">
-                <p-panelMenu [model]="items">
-    
-                </p-panelMenu>
-            </div>
-            <div class="p-col-10  ">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-        <div class="p-grid">
-            <div class=" footer p-col-12">
-                    © {{currenYearFormat}} Miracle Software System Copyright
-            </div>
-        </div>
-    </div> -->
-    

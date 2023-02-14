@@ -15,6 +15,7 @@ export class EdittableComponent implements OnInit {
   usersData: any = []
   ngOnInit(): void {
     this.getTableData()
+
   }
   getTableData() {
     this.service.getApi(environment.listOfUsers).subscribe((i: any) => {
@@ -63,17 +64,19 @@ export class EdittableComponent implements OnInit {
     delete this.products2[product.id];
   }
   username:String
+  Id:String
   Search(){
-    console.log(this.username)
-    if(this.username
-      ==""){
+    console.log(this.Id)
+    if(this.username=="" || this.Id==""){
       this.ngOnInit();
     }
     else{
       this. usersData=this. usersData.filter(res=>{
-        console.log(res)
-        console.log(typeof(res.username),"res")
-         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase())
+        console.log(res.Id)
+        console.log(typeof(res.Id),"res")
+
+        console.log( res.Id.num.toString().toLocaleLowerCase().match(this.Id.toLocaleLowerCase()))
+         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase()) ||  res.Id.num.toString().toLocaleLowerCase().match(this.Id.toLocaleLowerCase())
       })
     }
   }

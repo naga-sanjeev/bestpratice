@@ -110,6 +110,9 @@ import { ReactiveFormsComponent } from './components/TemplateForms/reactive-form
 import { TemplateDrivenFormsComponent } from './components/TemplateForms/template-driven-forms/template-driven-forms.component';
 import { RegisterComponent } from './components/TemplateForms/register/register.component';
 import { NewLoginComponent } from './components/TemplateForms/new-login/new-login.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 // import { PatientComponent } from './components/patient/patient.component';
@@ -244,6 +247,12 @@ import { NewLoginComponent } from './components/TemplateForms/new-login/new-logi
         RegisterComponent,
         
         NewLoginComponent,
+        
+        TopbarComponent,
+        
+        FooterComponent,
+        
+        SidebarComponent,
         
     
         

@@ -17,13 +17,16 @@ import { NewLoginComponent } from './components/TemplateForms/new-login/new-logi
 import { ReactiveFormsComponent } from './components/TemplateForms/reactive-forms/reactive-forms.component';
 import { TemplateDrivenFormsComponent } from './components/TemplateForms/template-driven-forms/template-driven-forms.component';
 import { RegisterComponent } from './components/TemplateForms/register/register.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            {path:'newRegister',component:NewregisterComponent},
-            {path:'',component:LoginComponent},
+            { path: 'newRegister', component: NewregisterComponent },
+            { path: '', component: LoginComponent },
             {
                 path:'dashboard',component:DashboardComponent,
                 children:[
@@ -40,9 +43,12 @@ import { RegisterComponent } from './components/TemplateForms/register/register.
                     { path: 'radar',component:RadarsComponent}
                 ]          
             },
-            
-   
-            
+            { path: 'topbar', component: TopbarComponent },
+            { path: 'footer', component: FooterComponent },
+            { path: 'sidebar', component: SidebarComponent },
+           
+
+
         ], { scrollPositionRestoration: 'enabled' })
     ],
     exports: [RouterModule]
