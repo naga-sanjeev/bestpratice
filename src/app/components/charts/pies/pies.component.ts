@@ -10,38 +10,42 @@ import { environment } from 'src/environments2/environment';
 export class PiesComponent implements OnInit {
   basicData: any;
   basicOptions: any;
- 
+
   // datas: any = []
 
   // label: any = []
-  table:any=[]
+  table: any = []
 
 
   finalData: any
-  users= [];
-  datas:any =[];
-  
+  users = [];
+  datas: any = [];
+
   info: any;
 
 
-  constructor(private rs: DataService) { }
+  constructor(private rs: DataService) {
+
+
+   
+   }
 
   ngOnInit(): void {
-      
+
     this.rs.getData(environment.charts).subscribe((res: any) => {
       this.finalData = res
       console.log(this.finalData, "yuyui")
 
       const months = ['jan', 'feb', 'mar', 'april', 'may', 'june',
-      'july', 'aug', 'sept', 'oct', 'nov', 'dec'];
+        'july', 'aug', 'sept', 'oct', 'nov', 'dec'];
       const sorter = (a, b) => {
-        
-            return months.indexOf(a.month) - months.indexOf(b.month)
+
+        return months.indexOf(a.month) - months.indexOf(b.month)
       };
       this.finalData.sort(sorter);
       console.log(this.finalData, "sorting");
 
-      this.finalData.forEach((element:any) => {
+      this.finalData.forEach((element: any) => {
         this.datas.push(element.month)
       });
       console.log(this.datas);
@@ -49,26 +53,21 @@ export class PiesComponent implements OnInit {
         return element.emp1
       });
       console.log(this.info);
-      console.log('label',this.datas)
-      this.basicData = {
-        labels: this.datas,
-        datasets: [
-            {
-              data: this.info,
-                // label: 'My First dataset',
-                backgroundcolor: ["blue","green","yellow","red","orange","black","pink"]
-            } 
-        ],
-        hoverBackgroundColor: [
-          "pink",
-          "blue",
-          "red",
-          "green",
-          "orange",
-          "black",
-          "yellow"
+      console.log('label', this.datas)
+    this.basicData = {
+      labels: this.datas,
+      datasets: [
+        {
+          data: this.info,
+          // label: 'My First dataset',
+          backgroundColor: ["#42A5F5", "#42A5F5", "#66BB6A", "#FFA726", "#64B5F6", "#81C784", "#FFB74D"],
+          hoverBackgroundColor: [
+            "#42A5F5", "#42A5F5", "#66BB6A", "#FFA726", "#64B5F6", "#81C784", "#FFB74D"
+          ]
+        }
       ]
-    };
-    })
+}
+})
+
   }
 }

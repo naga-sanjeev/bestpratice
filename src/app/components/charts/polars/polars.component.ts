@@ -54,7 +54,7 @@ export class PolarsComponent implements OnInit {
         datasets: [
             {
                 // label: 'My First dataset',
-                backgroundcolor: ["blue","green","yellow","red","orange","black","pink"],
+                backgroundColor: ["blue","green","yellow","red","orange","black","pink"],
                 data: this.info
             }
             
