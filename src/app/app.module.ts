@@ -27,7 +27,6 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {ContextMenuModule} from 'primeng/contextmenu';
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {DataViewModule} from 'primeng/dataview';
 import {DialogModule} from 'primeng/dialog';
 import {DividerModule} from 'primeng/divider';
@@ -90,8 +89,6 @@ import {VirtualScrollerModule} from 'primeng/virtualscroller';
 
 // Application Components
 import {AppComponent} from './app.component';
-// import {MenuService} from './app.menu.service';
-
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CommonInterceptor } from './common.interceptor';
@@ -113,10 +110,6 @@ import { NewLoginComponent } from './components/TemplateForms/new-login/new-logi
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-
-
-// import { PatientComponent } from './components/patient/patient.component';
-
 
 @NgModule({
     imports: [
@@ -209,62 +202,30 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ],
     declarations: [
         AppComponent,
-        
         LoginComponent,
-        
-        
-        
         DashboardComponent,
-    
-        
         EdittableComponent,
-        
-    
-        
         ProfileComponent,
-        
         EditprofileComponent,
-        
-        
         NewregisterComponent,
-        
         BarsComponent,
-        
         DoughnutsComponent,
-        
         PiesComponent,
-        
         LinesComponent,
-        
         PolarsComponent,
-        
         RadarsComponent,
-        
         ReactiveFormsComponent,
-        
         TemplateDrivenFormsComponent,
-        
         RegisterComponent,
-        
         NewLoginComponent,
-        
         TopbarComponent,
-        
         FooterComponent,
-        
         SidebarComponent,
-        
-    
-        
-        
-        // PatientComponent,
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-     
-        DataService,
+         DataService,
         {provide:HTTP_INTERCEPTORS,useClass:CommonInterceptor,multi:true}
-        // BreadcrumbService,
     ],
     bootstrap: [AppComponent]
 })

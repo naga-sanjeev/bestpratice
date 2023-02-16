@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
       userName: '',
       password: ''
     })
-    
   }
   loginDetails: object = []
   onClick() {
@@ -55,7 +54,6 @@ export class LoginComponent implements OnInit {
   //function for checking the login verification 
   loginVerification(data: any, body) {
     if (data.status == 'success') {
-
       if (data.response[0].Role == 'patient') {
         this.status='succes'
         this.router.navigateByUrl('dashboard');
@@ -77,8 +75,6 @@ export class LoginComponent implements OnInit {
       this.messageService.add({ severity: 'error', summary: 'Enter UserName and Password correctly', detail: '' });
     }
   }
-  
-  
   sendRole(data:string){
     console.log("hai",data);
  

@@ -6,12 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./doughnuts.component.scss']
 })
 export class DoughnutsComponent implements OnInit {
-
   data: any;
   constructor() { }
-
   ngOnInit(): void {
-
     this.data = {
       labels: ['saikumar','yeswanth','prasad'],
       datasets: [
@@ -30,7 +27,5 @@ export class DoughnutsComponent implements OnInit {
           }
       ]
   };
-
   }
-
 }

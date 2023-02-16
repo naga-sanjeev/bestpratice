@@ -71,6 +71,5 @@ export class SidebarComponent implements OnInit {
         routerLink: ['/dashboard/editTable']
       }
     ];
-  }  
- 
+  }
 }

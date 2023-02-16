@@ -128,13 +128,6 @@ export class TemplateDrivenFormsComponent implements OnInit {
       }
       console.log(reqBody);
       this.onBasicUploadAuto(event);
-      // this.service.postApi(environment.postUserData,reqBody).subscribe((i)=>{
-      //   console.log(i);
-      //   setTimeout(()=>{
-      //     this.router.navigateByUrl('/dashboard/editTable')
-      //    },2000)
-      //   this.messageService.add({ severity: 'success', summary: 'Updated successully', detail: '',life:3000 });
-      // })
     }
   }
   onBasicUploadAuto(event: any) {
@@ -143,7 +136,6 @@ export class TemplateDrivenFormsComponent implements OnInit {
   }
   onChange() {
     console.log(this.selectRole);
-
     // this.selectRole = this.regForm.controls.role.value
     if (this.selectRole == "doctor") {
       this.addDoctor = true;

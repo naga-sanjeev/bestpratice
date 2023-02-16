@@ -4,29 +4,31 @@
         <p-card>
             <form class="" [formGroup]="form">
                 <h4>Login into your Account</h4>
-                <br/>
-                <div class="p-inputgroup"  >
+                <br />
+                <div class="p-inputgroup">
                     <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
                     <span class="p-float-label">
-                        <input id="userName" type="text" autocomplete="off" class="textFields" pInputText  formControlName="userName">
-                        <label for="float-input" >User Name</label>
+                        <input id="userName" type="text" autocomplete="off" class="textFields" pInputText
+                            formControlName="userName">
+                        <label for="float-input">User Name</label>
                     </span>
                 </div>
-                <br /><br/>
+                <br /><br />
                 <div class="p-inputgroup mt-3">
                     <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
                     <span class="p-float-label">
-                        <input id="password" type="password" autocomplete="off" class="textFields" pInputText  formControlName="password">
+                        <input id="password" type="password" autocomplete="off" class="textFields" pInputText
+                            formControlName="password">
                         <label for="float-input">Password</label>
                     </span>
                 </div>
                 <br />
                 <span class="flex justify-content-center align-content-center mt-4 ">
-                    <button pButton pRipple type="button" class=" w-full text-white p-button-text  surface-700" label="Login"
-                        (click)="onClick()" style="background-color:white;"></button>
+                    <button pButton pRipple type="button" class=" w-full text-white p-button-text  surface-700"
+                        label="Login" (click)="onClick()" style="background-color:white;"></button>
                 </span>
-                <br/><br/>
-                    Don't have an account? <a label="Sign-up" routerLink='/newRegister' >Please Register Here</a>
+                <br /><br />
+                Don't have an account? <a label="Sign-up" routerLink='/newRegister'>Please Register Here</a>
             </form>
         </p-card>
     </div>

@@ -21,34 +21,30 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
-
 @NgModule({
     imports: [
         RouterModule.forRoot([
             { path: 'newRegister', component: NewregisterComponent },
             { path: '', component: LoginComponent },
             {
-                path:'dashboard',component:DashboardComponent,
-                children:[
+                path: 'dashboard', component: DashboardComponent,
+                children: [
                     { path: 'reactive', component: ReactiveFormsComponent },
-                    { path: 'templateDriven',component:TemplateDrivenFormsComponent},
-                    { path: 'editTable',component:EdittableComponent},
-                    { path: 'profile',component:ProfileComponent},
-                    { path: 'editProfile',component:EditprofileComponent},
-                    { path: 'bar',component:BarsComponent},
-                    { path: 'doughnut',component:DoughnutsComponent},
-                    { path: 'pie',component:PiesComponent},
-                    { path: 'line',component:LinesComponent},
-                    { path: 'polar',component:PolarsComponent},
-                    { path: 'radar',component:RadarsComponent}
-                ]          
+                    { path: 'templateDriven', component: TemplateDrivenFormsComponent },
+                    { path: 'editTable', component: EdittableComponent },
+                    { path: 'profile', component: ProfileComponent },
+                    { path: 'editProfile', component: EditprofileComponent },
+                    { path: 'bar', component: BarsComponent },
+                    { path: 'doughnut', component: DoughnutsComponent },
+                    { path: 'pie', component: PiesComponent },
+                    { path: 'line', component: LinesComponent },
+                    { path: 'polar', component: PolarsComponent },
+                    { path: 'radar', component: RadarsComponent }
+                ]
             },
             { path: 'topbar', component: TopbarComponent },
             { path: 'footer', component: FooterComponent },
             { path: 'sidebar', component: SidebarComponent },
-           
-
-
         ], { scrollPositionRestoration: 'enabled' })
     ],
     exports: [RouterModule]

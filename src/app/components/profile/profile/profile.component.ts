@@ -13,9 +13,8 @@ export class ProfileComponent implements OnInit {
   profile: any
   userId: any
   userData: any
-  id:any
-  constructor(private fb: FormBuilder,private router: Router, private service: DataService) { }
-
+  id: any
+  constructor(private fb: FormBuilder, private router: Router, private service: DataService) { }
   ngOnInit(): void {
     this.getUserData();
     this.gender = [
@@ -43,17 +42,12 @@ export class ProfileComponent implements OnInit {
       weight: ['', [Validators.required]],
       role: ['', [Validators.required]]
     })
-    // this.service.loginUserId.subscribe((i:number)=>{
-    //   console.log(i);
-    //   this.id=i
-    //   this.getUserData()
-    // })
     this.getUserData()
   }
   getUserData() {
     this.id = localStorage.getItem('id' || '[]')
     console.log(this.id);
-    this.service.getUserById(environment.getUserDataById,this.id).subscribe((res: any) => {
+    this.service.getUserById(environment.getUserDataById, this.id).subscribe((res: any) => {
       console.log(res);
       this.userData = res.respones[0]
       console.log(this.userData);
@@ -81,7 +75,6 @@ export class ProfileComponent implements OnInit {
     })
   }
   pannelback() {
-      this.router.navigateByUrl('dashboard/root')
+    this.router.navigateByUrl('dashboard/root')
   }
-
 }

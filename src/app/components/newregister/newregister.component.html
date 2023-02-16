@@ -1,178 +1,177 @@
 <div class="h-screen">
-    <br/>
-        <p-card >
-            <form [formGroup]="registerForm">
-                        <h4>Registration Form</h4>
-                <br/>
-                <div class="">
-                    <span class="p-float-label">
-                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
-                            formControlName="firstName">
-                        <label for="float-input">First Name<span class="mandatoryColor">*</span></label>
+    <br />
+    <p-card>
+        <form [formGroup]="registerForm">
+            <h4>Registration Form</h4>
+            <br />
+            <div class="">
+                <span class="p-float-label">
+                    <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                        formControlName="firstName">
+                    <label for="float-input">First Name<span class="mandatoryColor">*</span></label>
+                </span>
+                <div>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('firstName').touched && this.registerForm.get('firstName').invalid && this.registerForm.get('firstName').errors.required">
+                        First Name is Required
                     </span>
-                    <div>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('firstName').touched && this.registerForm.get('firstName').invalid && this.registerForm.get('firstName').errors.required">
-                            First Name is Required
-                        </span>
 
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('firstName').touched && this.registerForm.get('firstName').invalid && this.registerForm.get('firstName').errors.maxlength">
-                            Maximum length is 30
-                        </span>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('firstName').touched && this.registerForm.get('firstName').invalid && this.registerForm.get('firstName').errors.pattern">
-                            Only alphabetrs are required
-                        </span>
-                    </div>
-                </div>
-                <br/><br/>
-                <div class="">
-                    <span class="p-float-label">
-                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
-                            formControlName="lastName">
-                        <label for="float-input">Last Name<span class="mandatoryColor">*</span></label>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('firstName').touched && this.registerForm.get('firstName').invalid && this.registerForm.get('firstName').errors.maxlength">
+                        Maximum length is 30
                     </span>
-                    <div>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('lastName').touched && this.registerForm.get('lastName').invalid && this.registerForm.get('lastName').errors.required">
-                            Last Name is Required
-                        </span>
-
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('lastName').touched && this.registerForm.get('lastName').invalid && this.registerForm.get('lastName').errors.maxlength">
-                            Maximum length is 30
-                        </span>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('lastName').touched && this.registerForm.get('lastName').invalid && this.registerForm.get('lastName').errors.pattern">
-                            Only alphabetrs are rquired
-                        </span>
-                    </div>
-                </div>
-                <br/><br/>
-                <div class="">
-                    <div>
-                        <span class="p-float-label">
-                            <input id="float-input" autocomplete="off" type="email" class="p-inputtext-lg" pInputText
-                                formControlName="email">
-                            <label for="float-input">Email<span class="mandatoryColor">*</span></label>
-                        </span>
-                    </div>
-
-                    <div>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('email').touched && this.registerForm.get('email').invalid && this.registerForm.get('email').errors.required">
-                            Email is required
-                        </span>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('email').touched && this.registerForm.get('email').invalid && this.registerForm.get('email').errors.email">
-                            Enter Valid email
-                        </span>
-                    </div>
-                </div>
-                <br/><br/>
-                <div class="">
-                    <span class="p-float-label">
-                        <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
-                            formControlName="phoneNumber">
-                        <label for="float-input">Phone Number<span class="mandatoryColor">*</span></label>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('firstName').touched && this.registerForm.get('firstName').invalid && this.registerForm.get('firstName').errors.pattern">
+                        Only alphabetrs are required
                     </span>
-                    <div>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('phoneNumber').touched && this.registerForm.get('phoneNumber').invalid && this.registerForm.get('phoneNumber').errors.required">
-                            Phone Number is required
-                        </span>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('phoneNumber').touched && this.registerForm.get('phoneNumber').invalid && this.registerForm.get('phoneNumber').errors.pattern">
-                            Minimum length is 10 and Maximum length is 15
-                        </span>
-                    </div>
                 </div>
-                <br/><br/>
-                <div class="">
-                    <span class="p-float-label">
-                        <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
-                            formControlName="alternativeNumber">
-                        <label for="float-input">Alternate Number</label>
+            </div>
+            <br /><br />
+            <div class="">
+                <span class="p-float-label">
+                    <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                        formControlName="lastName">
+                    <label for="float-input">Last Name<span class="mandatoryColor">*</span></label>
+                </span>
+                <div>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('lastName').touched && this.registerForm.get('lastName').invalid && this.registerForm.get('lastName').errors.required">
+                        Last Name is Required
                     </span>
-                    <div>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('alternativeNumber').touched && this.registerForm.get('alternativeNumber').invalid && this.registerForm.get('alternativeNumber').errors.pattern">
-                            Minimum length is 10
-                        </span>
-                    </div>
-                </div>
-                <br/><br/>
-                <div class="">
-                    <span class="p-float-label">
-                        <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
-                            formControlName="age">
-                        <label for="float-input">Age<span class="mandatoryColor">*</span></label>
+
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('lastName').touched && this.registerForm.get('lastName').invalid && this.registerForm.get('lastName').errors.maxlength">
+                        Maximum length is 30
                     </span>
-                    <div>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('age').touched && this.registerForm.get('age').invalid && this.registerForm.get('age').errors.required">
-                            Age is required
-                        </span>
-
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('age').touched && this.registerForm.get('age').invalid && this.registerForm.get('age').errors.pattern">
-                            Minimum length is 2
-                        </span>
-                    </div>
-                </div>
-                <br/><br/>
-                <div class="">
-                    <span class="p-float-label">
-                        <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
-                            formControlName="userName">
-                        <label for="float-input">User Name<span class="mandatoryColor">*</span></label>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('lastName').touched && this.registerForm.get('lastName').invalid && this.registerForm.get('lastName').errors.pattern">
+                        Only alphabetrs are rquired
                     </span>
-                    <div>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('userName').touched && this.registerForm.get('userName').invalid && this.registerForm.get('userName').errors.required">
-                            User Name is required
-                        </span>
-                    </div>
                 </div>
-                <br/><br/>
-                <div class="">
+            </div>
+            <br /><br />
+            <div class="">
+                <div>
                     <span class="p-float-label">
-                        <input id="float-input" autocomplete="off" type="password" class="p-inputtext-lg" pInputText
-                            formControlName="password">
-                        <label for="float-input">Password<span class="mandatoryColor">*</span></label>
+                        <input id="float-input" autocomplete="off" type="email" class="p-inputtext-lg" pInputText
+                            formControlName="email">
+                        <label for="float-input">Email<span class="mandatoryColor">*</span></label>
                     </span>
-                    <div>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('password').touched && this.registerForm.get('password').invalid && this.registerForm.get('password').errors.required">
-                            Enter Password
-                        </span>
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('password').touched && this.registerForm.get('password').invalid && this.registerForm.get('password').errors.minlength">
-                            Password Minimum length is 5
-                        </span>
-
-                    </div>
-
                 </div>
-                <br/><br/>
-                <div class="">
-                    <p-dropdown [options]="gender" placeholder="Select Gender*" [style]="{'height':'2.8rem','text-align':'left'}"
-                        [showClear]="false" optionLabel="gen" optionValue="gen" formControlName="gender"></p-dropdown>
-                
-                    <div>
 
-                        <span class="validationtest"
-                            *ngIf="this.registerForm.get('gender').touched && this.registerForm.get('gender').invalid && this.registerForm.get('gender').errors.required">
-                            Select Gender
-                        </span>
-                    </div>
+                <div>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('email').touched && this.registerForm.get('email').invalid && this.registerForm.get('email').errors.required">
+                        Email is required
+                    </span>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('email').touched && this.registerForm.get('email').invalid && this.registerForm.get('email').errors.email">
+                        Enter Valid email
+                    </span>
                 </div>
-                <br/><br/>      
-                <div class="btn">
-                    <button pButton (click)="submit()" type="button" label="Submit"></button>
+            </div>
+            <br /><br />
+            <div class="">
+                <span class="p-float-label">
+                    <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                        formControlName="phoneNumber">
+                    <label for="float-input">Phone Number<span class="mandatoryColor">*</span></label>
+                </span>
+                <div>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('phoneNumber').touched && this.registerForm.get('phoneNumber').invalid && this.registerForm.get('phoneNumber').errors.required">
+                        Phone Number is required
+                    </span>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('phoneNumber').touched && this.registerForm.get('phoneNumber').invalid && this.registerForm.get('phoneNumber').errors.pattern">
+                        Minimum length is 10 and Maximum length is 15
+                    </span>
                 </div>
-                <br/>
-            </form>
-        </p-card>
+            </div>
+            <br /><br />
+            <div class="">
+                <span class="p-float-label">
+                    <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                        formControlName="alternativeNumber">
+                    <label for="float-input">Alternate Number</label>
+                </span>
+                <div>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('alternativeNumber').touched && this.registerForm.get('alternativeNumber').invalid && this.registerForm.get('alternativeNumber').errors.pattern">
+                        Minimum length is 10
+                    </span>
+                </div>
+            </div>
+            <br /><br />
+            <div class="">
+                <span class="p-float-label">
+                    <input id="float-input" autocomplete="off" type="number" class="p-inputtext-lg" pInputText
+                        formControlName="age">
+                    <label for="float-input">Age<span class="mandatoryColor">*</span></label>
+                </span>
+                <div>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('age').touched && this.registerForm.get('age').invalid && this.registerForm.get('age').errors.required">
+                        Age is required
+                    </span>
+
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('age').touched && this.registerForm.get('age').invalid && this.registerForm.get('age').errors.pattern">
+                        Minimum length is 2
+                    </span>
+                </div>
+            </div>
+            <br /><br />
+            <div class="">
+                <span class="p-float-label">
+                    <input id="float-input" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
+                        formControlName="userName">
+                    <label for="float-input">User Name<span class="mandatoryColor">*</span></label>
+                </span>
+                <div>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('userName').touched && this.registerForm.get('userName').invalid && this.registerForm.get('userName').errors.required">
+                        User Name is required
+                    </span>
+                </div>
+            </div>
+            <br /><br />
+            <div class="">
+                <span class="p-float-label">
+                    <input id="float-input" autocomplete="off" type="password" class="p-inputtext-lg" pInputText
+                        formControlName="password">
+                    <label for="float-input">Password<span class="mandatoryColor">*</span></label>
+                </span>
+                <div>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('password').touched && this.registerForm.get('password').invalid && this.registerForm.get('password').errors.required">
+                        Enter Password
+                    </span>
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('password').touched && this.registerForm.get('password').invalid && this.registerForm.get('password').errors.minlength">
+                        Password Minimum length is 5
+                    </span>
+                </div>
+            </div>
+            <br /><br />
+            <div class="">
+                <p-dropdown [options]="gender" placeholder="Select Gender*"
+                    [style]="{'height':'2.8rem','text-align':'left'}" [showClear]="false" optionLabel="gen"
+                    optionValue="gen" formControlName="gender"></p-dropdown>
+
+                <div>
+
+                    <span class="validationtest"
+                        *ngIf="this.registerForm.get('gender').touched && this.registerForm.get('gender').invalid && this.registerForm.get('gender').errors.required">
+                        Select Gender
+                    </span>
+                </div>
+            </div>
+            <br /><br />
+            <div class="btn">
+                <button pButton (click)="submit()" type="button" label="Submit"></button>
+            </div>
+            <br />
+        </form>
+    </p-card>
 </div>

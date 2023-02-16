@@ -10,36 +10,19 @@ import { environment } from 'src/environments2/environment';
 export class PiesComponent implements OnInit {
   basicData: any;
   basicOptions: any;
-
-  // datas: any = []
-
-  // label: any = []
   table: any = []
-
-
   finalData: any
   users = [];
   datas: any = [];
-
   info: any;
-
-
-  constructor(private rs: DataService) {
-
-
-   
-   }
-
+  constructor(private rs: DataService) {}
   ngOnInit(): void {
-
     this.rs.getData(environment.charts).subscribe((res: any) => {
       this.finalData = res
       console.log(this.finalData, "yuyui")
-
       const months = ['jan', 'feb', 'mar', 'april', 'may', 'june',
         'july', 'aug', 'sept', 'oct', 'nov', 'dec'];
       const sorter = (a, b) => {
-
         return months.indexOf(a.month) - months.indexOf(b.month)
       };
       this.finalData.sort(sorter);
@@ -68,6 +51,5 @@ export class PiesComponent implements OnInit {
       ]
 }
 })
-
   }
 }

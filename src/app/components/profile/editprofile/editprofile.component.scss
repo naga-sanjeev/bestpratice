@@ -1,23 +1,16 @@
 .btn {
-  // float: right;
-  // margin-right: 0.5%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-  
-  .mandatoryColor {
-    color: red
-  }
-  
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  
-  
-  input[type=number] {
-    -moz-appearance: textfield;
-  }
+.mandatoryColor {
+  color: red
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}

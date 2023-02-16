@@ -1,34 +1,30 @@
 .btn {
-    // float: right;
-    // margin-right: 0.5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .mandatoryColor {
-    color: red
-  }
-  
-  .gap{
-  margin-top:1%;
-  }
-  
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  
-  /* Firefox */
-  input[type=number] {
-    -moz-appearance: textfield;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.mandatoryColor {
+  color: red
+}
 
-    @media (min-width: 320px) and (max-width: 480px) {
-     ::ng-deep .p-col-10 {
-        padding-left: 82px;
-        width: 83.3333%;
-      }
-    }
+.gap {
+  margin-top: 1%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  ::ng-deep .p-col-10 {
+    padding-left: 82px;
+    width: 83.3333%;
+  }
+}

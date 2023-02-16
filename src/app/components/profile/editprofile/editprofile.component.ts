@@ -11,8 +11,6 @@ import { environment } from 'src/environments2/environment';
   providers: [ MessageService]
 })
 export class EditprofileComponent implements OnInit {
-
- 
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private service: DataService,private messageService: MessageService) { }
   editProfile: any
   gender: any
@@ -121,7 +119,6 @@ export class EditprofileComponent implements OnInit {
       }
       console.log(reqBody);
       console.log();
-
       this.service.updateUserData(environment.updateUserData,this.id,reqBody).subscribe((x: any) => {
         console.log("update");
         console.log(x);

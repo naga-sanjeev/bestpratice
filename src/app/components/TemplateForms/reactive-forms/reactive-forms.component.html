@@ -1,5 +1,5 @@
 <p-toast></p-toast>
-<p-panel header="Add Member" >
+<p-panel header="Add Member">
     <ng-template pTemplate="icons">
     </ng-template>
     <div>
@@ -210,7 +210,7 @@
                         </span>
                     </div>
                 </div>
-                <br/>
+                <br />
                 <div class="p-fluid p-formgrid p-grid">
                     <div class=" p-md-3 p-sm-6 p-lg-4">
                         <span class="p-float-label">
@@ -281,7 +281,7 @@
 
                         </div>
                     </div>
-                    <br/>
+                    <br />
                     <div class="  p-md-3 p-sm-6 p-lg-4">
                         <span class="p-float-label">
                             <input id="weight" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
@@ -295,11 +295,10 @@
                             </span>
                         </div>
                     </div>
-                   
+
                     <div class="gap p-md-3 p-sm-6 p-lg-4">
                         <p-dropdown [options]="roles" placeholder="Select Role" [showClear]="false" optionLabel="role"
-                        class="gap"  optionValue="role" formControlName="role"
-                            (onChange)="onChange()"></p-dropdown>
+                            class="gap" optionValue="role" formControlName="role" (onChange)="onChange()"></p-dropdown>
                         <div>
                             <span class="validationtest"
                                 *ngIf="this.regForm.get('role').touched && this.regForm.get('role').invalid && this.regForm.get('role').errors.required">
@@ -307,11 +306,11 @@
                             </span>
                         </div>
                     </div>
-                  
+
                     <div class="gap p-md-3 p-sm-6 p-lg-4" *ngIf="addDoctor">
                         <span class="p-float-label">
                             <input id="designation" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
-                             formControlName="designation">
+                                formControlName="designation">
                             <label for="input">Doctor Specialization<span class="mandatoryColor">*</span></label>
                         </span>
                         <div>
@@ -321,7 +320,7 @@
                             </span>
                         </div>
                     </div>
-                 
+
                     <div class="gap p-md-3 p-sm-6 p-lg-4" *ngIf="addPatient">
                         <span class="p-float-label">
                             <input id="bloodGroup" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
@@ -335,7 +334,7 @@
                             </span>
                         </div>
                     </div>
-                    
+
                     <div class="gap p-md-3 p-sm-6 p-lg-4" *ngIf="addDoctor">
                         <span class="p-float-label">
                             <input id="availbility" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
@@ -349,7 +348,7 @@
                             </span>
                         </div>
                     </div>
-                     
+
                     <div class="gap  p-md-3 p-sm-6 p-lg-4" *ngIf="addPatient">
                         <span class="p-float-label">
                             <input id="patientProblem" autocomplete="off" type="text" class="p-inputtext-lg" pInputText
@@ -367,7 +366,7 @@
                             </span>
                         </div>
                     </div>
-                </div>  
+                </div>
                 <div class=" p-fluid p-formgrid p-grid">
                     <div class=" p-md-3 p-sm-6 p-lg-4" *ngIf="addDoctor">
                         <span class="p-float-label">
@@ -376,11 +375,11 @@
                         </span>
                     </div>
                 </div>
-                 <div class="btn p-md-6 p-sm-6 p-lg-12">
-                    <button pButton   type="button" (click)="submit()" label="Submit"></button>&nbsp;
-                    <button pButton   type="button" (click)="reset()" label="Reset"></button>
+                <div class="btn p-md-6 p-sm-6 p-lg-12">
+                    <button pButton type="button" (click)="submit()" label="Submit"></button>&nbsp;
+                    <button pButton type="button" (click)="reset()" label="Reset"></button>
                 </div>
-                
+
             </form>
         </p-card>
     </div>

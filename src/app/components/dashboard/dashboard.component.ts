@@ -14,7 +14,6 @@ import { environment } from 'src/environments2/environment';
 export class DashboardComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private service: DataService, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
-
   currenYearFormat: number = new Date().getFullYear();
   title = 'TaskManagement';
   items: MenuItem[] = [];
@@ -26,7 +25,6 @@ export class DashboardComponent implements OnInit {
   ripple: boolean;
   ngOnInit(): void {
     this.getUsersData()
-    // this.onClick();
     this.sideBar();
     this.primengConfig.ripple = true;
   }
@@ -88,7 +86,7 @@ export class DashboardComponent implements OnInit {
       console.log(i);
     })
   }
-  profile(){
+  profile() {
     this.router.navigateByUrl('dashboard/profile')
   }
 }

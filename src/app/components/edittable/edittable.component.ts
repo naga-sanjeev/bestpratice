@@ -11,11 +11,10 @@ import { environment } from 'src/environments2/environment';
 })
 export class EdittableComponent implements OnInit {
 
-  constructor(private service: DataService, private messageService: MessageService,private router: Router) { }
+  constructor(private service: DataService, private messageService: MessageService, private router: Router) { }
   usersData: any = []
   ngOnInit(): void {
     this.getTableData()
-
   }
   getTableData() {
     this.service.getApi(environment.listOfUsers).subscribe((i: any) => {
@@ -24,9 +23,7 @@ export class EdittableComponent implements OnInit {
     })
   }
   products1: any[];
-
   products2: any[];
-
   statuses: SelectItem[];
   clonedProducts: { [s: string]: any; } = {};
   onRowEditInit(product) {
@@ -44,14 +41,13 @@ export class EdittableComponent implements OnInit {
       "Id": product.Id
     }
     console.log(reqBody2);
-
     const reqBody = {
       "Email": product.Email,
       "PhoneNumber": product.PhoneNumber,
       "Role": product.Role,
       "username": product.username
     }
-    this.service.updateUserData(environment.updateUserData,product.Id, reqBody).subscribe((i) => {
+    this.service.updateUserData(environment.updateUserData, product.Id, reqBody).subscribe((i) => {
       console.log(i);
       setTimeout(() => {
         this.router.navigateByUrl('/dashboard/editTable')
@@ -63,20 +59,19 @@ export class EdittableComponent implements OnInit {
     this.products2[index] = this.clonedProducts[product.id];
     delete this.products2[product.id];
   }
-  username:String
-  Id:String
-  Search(){
+  username: String
+  Id: String
+  Search() {
     console.log(this.Id)
-    if(this.username=="" || this.Id==""){
+    if (this.username == "" || this.Id == "") {
       this.ngOnInit();
     }
-    else{
-      this. usersData=this. usersData.filter(res=>{
+    else {
+      this.usersData = this.usersData.filter(res => {
         console.log(res.Id)
-        console.log(typeof(res.Id),"res")
-
-        console.log( res.Id.num.toString().toLocaleLowerCase().match(this.Id.toLocaleLowerCase()))
-         return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase()) ||  res.Id.num.toString().toLocaleLowerCase().match(this.Id.toLocaleLowerCase())
+        console.log(typeof (res.Id), "res")
+        console.log(res.Id.num.toString().toLocaleLowerCase().match(this.Id.toLocaleLowerCase()))
+        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase()) || res.Id.num.toString().toLocaleLowerCase().match(this.Id.toLocaleLowerCase())
       })
     }
   }

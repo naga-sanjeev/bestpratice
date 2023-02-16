@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
   }
   getData() {
     this.service.getData(environment.listOfUsers).subscribe((i: any) => {
-      // console.log(i.respones);
       this.usersData = i.respones
       console.log(this.usersData);
       // this.verification()

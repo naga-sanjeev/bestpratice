@@ -13,12 +13,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-/* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
-
 .h-screen {
 background: grey;
 display: flex;
@@ -29,34 +26,24 @@ background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
 height: auto;
-// padding-right: 5%;
-// opacity:.7
 }
-
-
 :host ::ng-deep  .p-card{
 background: #252529;
 color: #f8f9fa;
 height:auto;
 width:200% !important;  
-// opacity:.7
 }
 .pannel {
   color: none;
   background: none;
   border: none;
 }
-
 .p-button:enabled:hover {
-  //  background: #3949a3; 
-  // color: #727272;
-  // border-color: #3949a3; 
   background: none;  
 }
 ::ng-deep .p-inputtext  {
 width: 100%;
 }
-
 .textFields {
 background-color: #f8f9fa ;
 }
