@@ -15,8 +15,15 @@ export class EdittableComponent implements OnInit {
   usersData: any = []
   ngOnInit(): void {
     this.getTableData()
-
   }
+  cols = [
+    { field: '', header: 'ID', width: '1%' },
+    { field: '', header: 'User Name', width: '20%' },
+    { field: '', header: 'Phone Number', width: '15%' },
+    { field: '', header: 'Email', width: '15%' },
+    { field: '', header: 'Role', width: '8%' },
+    { field: '', header: 'Action', width: '8%' }
+  ];
   getTableData() {
     this.service.getApi(environment.listOfUsers).subscribe((i: any) => {
       console.log(i.respones);
@@ -30,7 +37,7 @@ export class EdittableComponent implements OnInit {
   statuses: SelectItem[];
   clonedProducts: { [s: string]: any; } = {};
   onRowEditInit(product) {
-    this.clonedProducts[product.id] = { ...product };
+    this.clonedProducts[product.edit] = { ...product };
   }
   onRowEditSave(product) {
     console.log(product.Email);

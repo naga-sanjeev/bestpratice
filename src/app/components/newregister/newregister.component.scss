@@ -1,13 +1,3 @@
-.btn {
-  background-color:none;
-   color:#8b8b90;
-   justify-content: center;
-   display:flex;
-   align-items: center;
-}
-.mandatoryColor {
-  color: red
-}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -19,6 +9,16 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.btn {
+  background-color:none;
+   color:#8b8b90;
+   justify-content: center;
+   display:flex;
+   align-items: center;
+}
+.mandatoryColor {
+  color: red
+}
 .h-screen {
 background: grey;
 display: flex;
@@ -29,11 +29,7 @@ background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
 height: auto;
-// padding-right: 5%;
-// opacity:.7
 }
-
-
 :host ::ng-deep  .p-card{
 background: #252529;
 color: #f8f9fa;

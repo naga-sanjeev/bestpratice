@@ -1,8 +1,19 @@
-.search {
-    float: right;
+::ng-deep .p-datatable table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto !important;
 }
-//max width 960px
-// :host ::ng-deep .p-card {
-//     width: 100%;
-//     padding: 2rem
-// }
+::ng-deep .p-datatable .p-datatable-tbody > tr {
+    color: #495057;
+    transition: box-shadow 0.2s;
+    outline-color: #a6d5fa;
+    border-bottom: 1px solid;
+}
+@media (min-width:320px) and(max-width:755px){
+    ::ng-deep .p-datatable .p-paginator-bottom {
+        border-width: 0 0 1px 0;
+        border-radius: 0;
+        margin-bottom: 6%;
+    }
+}
+

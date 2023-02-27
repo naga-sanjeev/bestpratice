@@ -1,26 +1,35 @@
-<p-menubar  class="">
-            <ng-template pTemplate="start">
-                Angular Application
-            </ng-template>
-            <ng-template pTemplate="end">
-                <div style="text-align: center;">
-                    <p-button icon="pi pi-user" (click)="op.toggle($event)"></p-button>&nbsp;&nbsp;
-                    <p-overlayPanel  #op [style]="{width: '150px'}">
-                        <ul class="">
-                            <li role="menuitem">
-                                <a href="#"routerLink="profile" >
-                                    <i class="pi pi-user"></i>&nbsp;
-                                    <span >Profile</span>
-                                </a>
-                            </li> <br />
-                            <li role="menuitem">
-                                <a href="#" routerLink="">
-                                    <i class="pi pi-sign-out"></i>&nbsp;
-                                    <span>Sign Out</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </p-overlayPanel>
-                </div>
-            </ng-template>
+<p-menubar class="">
+
+    <ng-template pTemplate="start">
+        <button #btn type="button" pButton icon="pi pi-bars" label="Show" (click)="toggle()" *ngIf="!mobileView"></button>
+        <button  type="button" pButton icon="pi pi-bars" label="Show" (click)="mobile()" *ngIf="mobileView"></button>
+        <!-- <p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-bars" label="Menu Bar" ></p-button> -->
+        Angular Application
+    </ng-template>
+    <ng-template pTemplate="end">
+        <div style="text-align: center;">
+            <p-button icon="pi pi-user" (click)="op.toggle($event)"></p-button>&nbsp;&nbsp;
+            <p-overlayPanel #op [style]="{width: '150px'}">
+                <ul class="">
+                    <li role="menuitem">
+                        <a href="#" routerLink="profile">
+                            <i class="pi pi-user"></i>&nbsp;
+                            <span>Profile</span>
+                        </a>
+                    </li> <br />
+                    <li role="menuitem">
+                        <a href="#" routerLink="">
+                            <i class="pi pi-sign-out"></i>&nbsp;
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </p-overlayPanel>
+        </div>
+    </ng-template>
 </p-menubar>
+
+<!-- <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="">
+    <p-panelMenu  [model]="items">
+    </p-panelMenu>
+</p-sidebar> -->

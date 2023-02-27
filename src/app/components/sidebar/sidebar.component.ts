@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +8,8 @@ import { MenuItem, PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  constructor(private primengConfig: PrimeNGConfig) { }
+  @Input() public sideBarData:boolean
+  constructor(private primengConfig: PrimeNGConfig,private service:DataService) { }
   items: MenuItem[] = [];
   item2: MenuItem[] = [];
   dot: false | undefined;
@@ -17,7 +19,7 @@ export class SidebarComponent implements OnInit {
   ripple: boolean;
   ngOnInit(): void {
     this.sideBar()
-    this.primengConfig.ripple = true;
+    this.primengConfig.ripple = true;    
   }
   sideBar() {
     this.items = [
@@ -72,5 +74,21 @@ export class SidebarComponent implements OnInit {
       }
     ];
   }  
- 
+  mobileView:boolean=false
+  getScreenWidth:any;
+  getScreenHeight:any
+  @HostListener('window:resize',['$event']) onWindowResize(){
+    this.getScreenWidth=window.innerWidth;
+    this.getScreenHeight=window.innerHeight;
+    if(this.getScreenWidth<=755){
+      this.mobileView=true
+      // console.log("mobileView:"+this.mobileView);
+      
+    }
+    if(this.getScreenWidth>=755){
+      this.mobileView=false
+      // console.log("mobileView:"+this.mobileView);
+      
+    }
+  }
 }

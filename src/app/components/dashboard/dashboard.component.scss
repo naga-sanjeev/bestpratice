@@ -1,15 +1,84 @@
-.screen{
-    width:99%;
-    z-index:1
-}
-.main{
-    display:flex;
-    margin-top: 3%;
-    // height:670px;
-    height: 87%;
-}
-:host ::ng-deep .p-card .p-card-content  {
-    padding: 0rem;
-    margin:0rem
+.screen {
+    width: 99%;
+    // z-index:1;
+    height: 100%;
 }
 
+.main {
+    display: flex;
+    // margin-top: 5%;
+    // height:670px;
+    // height: 100%;
+}
+.main2{
+    display:flex;
+    height:100%;
+}
+:host ::ng-deep .p-card .p-card-content {
+    padding: 0rem;
+    margin: 0rem
+}
+
+
+:host ::ng-deep .p-menubar .p-menubar-button {
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    color: #6c757d;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+@media (min-width:320px) and (max-width:364px) {
+    .side-menu2{
+        margin-top:10%
+    }
+}
+@media (min-width:360px) and (max-width:400px){
+    .side-menu2{
+        margin-top: 13.5%;
+    }
+}
+@media (min-width:401px) and(max-width:479px){
+    .side-menu2{
+        margin-top:12%;
+    }
+}
+@media (min-width: 480px) and (max-width:597px){
+    .side-menu2{
+        margin-top:10%;
+    }
+}
+@media (min-width: 598px) and (max-width:639px){
+    .side-menu2{
+        margin-top:9%;
+    }
+}
+@media (min-width: 640px) and (max-width: 768px) {
+    .side-menu2 {
+        margin-top: 8%;
+    }
+}
+
+@media (min-width: 755px) and (max-width: 1024px) {
+    .main {
+        margin-top: 6.5%;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .main {
+        margin-top: 5%;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1500px) {
+    .main {
+        margin-top: 5%;
+    }
+}
+
+@media (min-width: 1501px) and (max-width: 1700px) {
+    .main {
+        margin-top: 4%;
+    }
+}

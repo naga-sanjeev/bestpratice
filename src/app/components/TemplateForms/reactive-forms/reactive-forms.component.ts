@@ -12,7 +12,7 @@ import { environment } from 'src/environments2/environment';
   styleUrls: ['./reactive-forms.component.scss']
 })
 export class ReactiveFormsComponent implements OnInit {
-  constructor(private fb: FormBuilder, private router: Router, private service: DataService, private https: HttpClient, private messageService: MessageService,private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private router: Router,  private service: DataService, private https: HttpClient, private messageService: MessageService,private route: ActivatedRoute) { }
   gender: object=[];
   roles: any
   selectRole: any;
@@ -70,6 +70,11 @@ export class ReactiveFormsComponent implements OnInit {
       this.changeValidators()
     })
   }
+  onBasicUploadAuto(event:any) {
+    console.log("hai");
+    console.log(event);
+    console.log(this.myfile);
+  }
   //adding validators based on the role using dropdown
   changeValidators() {
     console.log(this.regForm.get('role').value);
@@ -93,7 +98,10 @@ export class ReactiveFormsComponent implements OnInit {
     this.regForm.get('bloodGroup').updateValueAndValidity();
     this.regForm.get('patientProblem').updateValueAndValidity();
   }
-  //selecting the role
+  /**
+   * in this method is to select the role
+   * based on the role it will show the required fields in the screen
+   */
   onChange() {
     this.selectRole = this.regForm.controls.role.value
     if (this.selectRole == "doctor") {
@@ -107,11 +115,10 @@ export class ReactiveFormsComponent implements OnInit {
       this.nothing = false;
     }
   } 
-  onBasicUploadAuto(event:any) {
-    console.log("hai");
-    console.log(event);
-    console.log(this.myfile);
-  }
+  /**
+   * in this method we submit the data from the screen.
+   * It will show errors if there is any errors in the field otherwise it will add the data in the table by using services
+   */
   submit() {
     console.log('form registration: ', this.regForm)
     if (this.regForm.invalid || this.regForm.get('role').invalid) {

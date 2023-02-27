@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
+import { Sidebar } from 'primeng/sidebar';
 import { AppComponent } from 'src/app/app.component';
 import { DataService } from 'src/app/data.service';
 import { environment } from 'src/environments2/environment';
@@ -19,69 +20,25 @@ export class DashboardComponent implements OnInit {
   title = 'TaskManagement';
   items: MenuItem[] = [];
   item2: MenuItem[] = [];
-  dot: false | undefined;
   role: string
-  profileMode = 'popup';
-  model = []
   ripple: boolean;
+  sideBar:boolean=true
+  pannelMenu:boolean=true
   ngOnInit(): void {
+    this.service.sideBar.subscribe((res)=>{
+      this.sideBar=res
+    })
+    this.service.pannelMenu.subscribe((res)=>{
+      this.pannelMenu=res
+    })
     this.getUsersData()
     // this.onClick();
-    this.sideBar();
     this.primengConfig.ripple = true;
-  }
-  sideBar() {
-    this.items = [
-      {
-        label: 'Home',
-        routerLink: ['/dashboard']
-      },
-      {
-        label: 'Charts',
-        items: [
-          {
-            label: 'Bar',
-            routerLink: ['/dashboard/bar']
-          },
-          {
-            label: 'Doughnut',
-            routerLink: ['/dashboard/doughnut']
-          },
-          {
-            label: 'Line',
-            routerLink: ['/dashboard/line']
-          },
-          {
-            label: 'Pie',
-            routerLink: ['/dashboard/pie']
-          },
-          {
-            label: 'Polar',
-            routerLink: ['/dashboard/polar']
-          },
-          {
-            label: 'Radar',
-            routerLink: ['/dashboard/radar']
-          },
-        ]
-      },
-      {
-        label: "Forms",
-        items: [{
-          label: 'Reactive Forms',
-          routerLink: ['/dashboard/reactive']
-        },
-        {
-          label: 'Template Driven Forms',
-          routerLink: ['/dashboard/templateDriven']
-        },
-        ]
-      },
-      {
-        label: 'Table',
-        routerLink: ['/dashboard/editTable']
-      }
-    ];
+    // this.service.notifyObservable.subscribe((res:any)=>{
+    //   if(res.refresh){
+    //     this.sidebar=true
+    //   }
+    // })
   }
   getUsersData() {
     this.service.getApi(environment.listOfUsers).subscribe((i) => {
@@ -90,5 +47,18 @@ export class DashboardComponent implements OnInit {
   }
   profile(){
     this.router.navigateByUrl('dashboard/profile')
+  }
+  getScreenWidth:any;
+  getScreenHeight:any;
+  dashBoardView:boolean=false
+  @HostListener('window:resize',['$event']) onWindowResize(){
+    this.getScreenWidth=window.innerWidth;
+    this.getScreenHeight=window.innerHeight;
+    if(this.getScreenWidth<=755){
+      this.dashBoardView=true
+    }
+    if(this.getScreenWidth>=755){
+      this.dashBoardView=false
+    }
   }
 }

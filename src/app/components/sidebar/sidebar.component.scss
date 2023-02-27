@@ -1,13 +1,22 @@
 .side-menu {
-    background: rgb(65, 65, 65);
+    // background: rgb(65, 65, 65);
     height: 100%;
-    position: fixed;
+    // position: fixed;
     z-index: 100;
-    width: 16%;
+    width: 100%;
+}
+.side-menu2 {
+    width: 102%;
 }
 ::ng-deep .p-panelmenu .p-panelmenu-header>a {
     border: 0px solid red;
     color: rgb(201, 195, 195);
     display: block;
-    background: rgb(65, 65, 65);
+    background: #f8f9fa;
+}
+
+::ng-deep .p-panelmenu .p-panelmenu-header:not(.p-highlight):not(.p-disabled) > a:hover {
+    background: #e9ecef;
+     border-color: #dee2e6; 
+    color: #495057;
 }

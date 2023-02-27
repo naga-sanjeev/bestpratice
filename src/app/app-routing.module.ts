@@ -46,9 +46,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
             { path: 'topbar', component: TopbarComponent },
             { path: 'footer', component: FooterComponent },
             { path: 'sidebar', component: SidebarComponent },
-           
-
-
         ], { scrollPositionRestoration: 'enabled' })
     ],
     exports: [RouterModule]

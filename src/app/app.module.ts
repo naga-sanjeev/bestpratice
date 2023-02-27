@@ -115,8 +115,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
-// import { PatientComponent } from './components/patient/patient.component';
-
 
 @NgModule({
     imports: [

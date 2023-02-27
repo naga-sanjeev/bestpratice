@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
       userName: '',
       password: ''
     })
-    
   }
   loginDetails: object = []
   onClick() {
